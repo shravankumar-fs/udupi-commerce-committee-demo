@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { LangProvider } from "@/components/lang";
+import { MotionProvider } from "@/components/Motion";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body suppressHydrationWarning>
-        <LangProvider>{children}</LangProvider>
+        <LangProvider><MotionProvider>{children}</MotionProvider></LangProvider>
       </body>
     </html>
   );

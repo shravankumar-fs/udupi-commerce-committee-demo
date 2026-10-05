@@ -1,4 +1,5 @@
 import { bearers, org, presidents, stateCommittee } from "@/lib/data";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { DateText, L, T } from "@/components/lang";
 import { PageHead } from "@/components/Cards";
 import { Initials, Photo } from "@/components/Photo";
@@ -56,14 +57,14 @@ export default function AboutPage() {
       <section className="section-paper">
         <div className="container">
           <h2><T en="What we do" kn="ನಾವು ಏನು ಮಾಡುತ್ತೇವೆ" /></h2>
-          <div className="objectives" style={{ marginTop: "1.5rem" }}>
+          <Stagger className="objectives" gap={0.08}>
             {objectives.map((o) => (
-              <div className="objective" key={o.t.en} style={{ background: "#fff" }}>
+              <StaggerItem className="objective" key={o.t.en}>
                 <h3><L v={o.t} /></h3>
                 <p className="small" style={{ fontSize: ".95rem" }}><L v={o.d} /></p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -71,19 +72,19 @@ export default function AboutPage() {
         <div className="container">
           <p className="eyebrow"><T en="2026 – 27" kn="2026 – 27" /></p>
           <h2><T en="Office bearers" kn="ಪದಾಧಿಕಾರಿಗಳು" /></h2>
-          <div className="bearers" style={{ marginTop: "1.5rem" }}>
+          <Stagger className="bearers" gap={0.07}>
             {officers.map((b, i) => (
-              <div className={`bearer ${i === 0 ? "bearer-lead" : ""}`} key={b.name}>
+              <StaggerItem className={`bearer ${i === 0 ? "bearer-lead" : ""}`} key={b.name}>
                 <Initials name={b.name} hue={HUES[i]} />
                 <div>
                   <b>{b.name}</b>
                   <span className="meta"><L v={b.role} /></span>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
           <h3 style={{ marginTop: "2.5rem" }}><T en="Board of directors" kn="ನಿರ್ದೇಶಕರ ಮಂಡಳಿ" /></h3>
-          <div className="directors">
+          <Reveal className="directors">
             {directors.map((d, i) => (
               <div className="director" key={d.name}>
                 <Initials name={d.name} hue={HUES[(i + 6) % HUES.length]} />
@@ -94,7 +95,7 @@ export default function AboutPage() {
               <Initials name={stateCommittee.name} hue={30} />
               <span>{stateCommittee.name} <em className="meta">· <L v={stateCommittee.role} /></em></span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -104,12 +105,12 @@ export default function AboutPage() {
           <p className="small" style={{ maxWidth: 640 }}>
             <T en="From news reports. Names of the founding members will be added from the Chamber's records." kn="ಪತ್ರಿಕಾ ವರದಿಗಳಿಂದ. ಸಂಸ್ಥಾಪಕ ಸದಸ್ಯರ ಹೆಸರುಗಳನ್ನು ಚೇಂಬರ್ ದಾಖಲೆಗಳಿಂದ ಸೇರಿಸಲಾಗುವುದು." />
           </p>
-          <ol className="timeline">
+          <Reveal><ol className="timeline">
             <li><b>2003</b><span><T en="Chamber registered" kn="ಚೇಂಬರ್ ನೋಂದಣಿ" /></span></li>
             {presidents.map((p) => (
               <li key={p.name}><b>{p.name}</b><span><L v={p.note} /></span></li>
             ))}
-          </ol>
+          </ol></Reveal>
         </div>
       </section>
     </>

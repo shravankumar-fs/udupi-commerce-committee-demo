@@ -1,4 +1,5 @@
 import { plans } from "@/lib/data";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { L, T } from "@/components/lang";
 import { PageHead } from "@/components/Cards";
 import { JoinForm } from "@/components/JoinForm";
@@ -42,29 +43,29 @@ export default function JoinPage() {
       </section>
       <section>
         <div className="container">
-          <div className="plans">
+          <Stagger className="plans" gap={0.1}>
             {plans.map((p) => (
-              <div key={p.id} className={`plan ${p.featured ? "featured" : ""}`}>
+              <StaggerItem key={p.id} className={`plan ${p.featured ? "featured" : ""}`}>
                 {p.featured && <span className="badge"><T en="Most popular" kn="ಹೆಚ್ಚು ಜನಪ್ರಿಯ" /></span>}
                 <h3><L v={p.name} /></h3>
                 <p className="price">{p.price}</p>
                 <span className="per"><L v={p.per} /></span>
                 <ul>{p.points.map((pt) => <li key={pt.en}><L v={pt} /></li>)}</ul>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
           <p className="small" style={{ marginTop: "1rem" }}><T en="Fees shown are placeholders for the demo." kn="ತೋರಿಸಿರುವ ಶುಲ್ಕಗಳು ಡೆಮೊಗಾಗಿ ಮಾತ್ರ." /></p>
         </div>
       </section>
       <section className="section-paper">
         <div className="container">
           <h2><T en="How it works" kn="ಪ್ರಕ್ರಿಯೆ" /></h2>
-          <div className="steps" style={{ marginTop: "1.5rem" }}>
-            <div className="step"><h3><T en="Apply online" kn="ಆನ್‌ಲೈನ್ ಅರ್ಜಿ" /></h3><p className="small"><T en="Fill the form below in 3 minutes." kn="ಕೆಳಗಿನ ಫಾರ್ಮ್ ಅನ್ನು 3 ನಿಮಿಷದಲ್ಲಿ ಭರ್ತಿ ಮಾಡಿ." /></p></div>
-            <div className="step"><h3><T en="Verification" kn="ಪರಿಶೀಲನೆ" /></h3><p className="small"><T en="Office calls to confirm your details." kn="ವಿವರ ದೃಢೀಕರಿಸಲು ಕಚೇರಿ ಕರೆ ಮಾಡುತ್ತದೆ." /></p></div>
-            <div className="step"><h3><T en="Pay the fee" kn="ಶುಲ್ಕ ಪಾವತಿ" /></h3><p className="small"><T en="UPI, cheque or cash at the office." kn="ಯುಪಿಐ, ಚೆಕ್ ಅಥವಾ ಕಚೇರಿಯಲ್ಲಿ ನಗದು." /></p></div>
-            <div className="step"><h3><T en="Go live" kn="ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ ಪ್ರಕಟ" /></h3><p className="small"><T en="Your business page appears in the directory." kn="ನಿಮ್ಮ ಉದ್ಯಮ ಪುಟ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ." /></p></div>
-          </div>
+          <Stagger className="steps" gap={0.1}>
+            <StaggerItem className="step"><h3><T en="Apply online" kn="ಆನ್‌ಲೈನ್ ಅರ್ಜಿ" /></h3><p className="small"><T en="Fill the form below in 3 minutes." kn="ಕೆಳಗಿನ ಫಾರ್ಮ್ ಅನ್ನು 3 ನಿಮಿಷದಲ್ಲಿ ಭರ್ತಿ ಮಾಡಿ." /></p></StaggerItem>
+            <StaggerItem className="step"><h3><T en="Verification" kn="ಪರಿಶೀಲನೆ" /></h3><p className="small"><T en="Office calls to confirm your details." kn="ವಿವರ ದೃಢೀಕರಿಸಲು ಕಚೇರಿ ಕರೆ ಮಾಡುತ್ತದೆ." /></p></StaggerItem>
+            <StaggerItem className="step"><h3><T en="Pay the fee" kn="ಶುಲ್ಕ ಪಾವತಿ" /></h3><p className="small"><T en="UPI, cheque or cash at the office." kn="ಯುಪಿಐ, ಚೆಕ್ ಅಥವಾ ಕಚೇರಿಯಲ್ಲಿ ನಗದು." /></p></StaggerItem>
+            <StaggerItem className="step"><h3><T en="Go live" kn="ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ ಪ್ರಕಟ" /></h3><p className="small"><T en="Your business page appears in the directory." kn="ನಿಮ್ಮ ಉದ್ಯಮ ಪುಟ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ." /></p></StaggerItem>
+          </Stagger>
         </div>
       </section>
       <section id="apply">

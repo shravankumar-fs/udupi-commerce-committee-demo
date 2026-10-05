@@ -1,4 +1,5 @@
 import { events } from "@/lib/data";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { T } from "@/components/lang";
 import { EventCard, PageHead } from "@/components/Cards";
 import { PhotoCarousel } from "@/components/IndustriesCarousel";
@@ -19,9 +20,9 @@ export default function EventsPage() {
       <section>
         <div className="container">
           <h2 style={{ fontSize: "1.5rem" }}><T en="Upcoming" kn="ಮುಂಬರುವ" /></h2>
-          <div className="event-list">{up.map((e) => <EventCard key={e.slug} e={e} />)}</div>
+          <Stagger className="event-list" gap={0.08}>{up.map((e) => <StaggerItem key={e.slug}><EventCard e={e} /></StaggerItem>)}</Stagger>
           <h2 style={{ fontSize: "1.5rem", marginTop: "3rem" }}><T en="Past events" kn="ಹಿಂದಿನ ಕಾರ್ಯಕ್ರಮಗಳು" /></h2>
-          <div className="event-list">{past.map((e) => <EventCard key={e.slug} e={e} />)}</div>
+          <Stagger className="event-list" gap={0.08}>{past.map((e) => <StaggerItem key={e.slug}><EventCard e={e} /></StaggerItem>)}</Stagger>
           <h2 style={{ fontSize: "1.5rem", marginTop: "3rem" }}><T en="Around Udupi" kn="ಉಡುಪಿಯ ಸುತ್ತಮುತ್ತ" /></h2>
           <PhotoCarousel label="Photos of Udupi" ids={["chariots", "offload", "university", "yakshagana", "stmarys", "matha", "paddy", "kaup"]} />
         </div>

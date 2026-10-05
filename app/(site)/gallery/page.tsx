@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { albums } from "@/lib/data";
 import { L, T } from "@/components/lang";
 import { PageHead } from "@/components/Cards";
@@ -31,14 +32,14 @@ export default function GalleryPage() {
         </div>
       </section>
       <section style={{ paddingTop: 20 }}>
-        <div className="container gallery-grid">
+        <Stagger className="container gallery-grid" gap={0.07}>
           {albums.map((a) => (
-            <Link key={a.slug} href={`/gallery/${a.slug}/`} className="album-card">
+            <StaggerItem key={a.slug}><Link href={`/gallery/${a.slug}/`} className="album-card">
               <Photo id={a.photos[0]} label={`${a.photos.length} photos`} />
               <h3><L v={a.title} /></h3>
-            </Link>
+            </Link></StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </section>
     </>
   );

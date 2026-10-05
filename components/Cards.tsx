@@ -5,6 +5,7 @@ import { DateText, L, T } from "./lang";
 import { Initials } from "./Photo";
 import { photo } from "@/lib/photos";
 import { HeroSlides } from "./Carousel";
+import { Stagger, StaggerItem } from "./Motion";
 
 export function EventCard({ e }: { e: Event }) {
   return (
@@ -60,11 +61,11 @@ export function PageHead({ eyebrow, title, intro, photos }: { eyebrow?: ReactNod
     return (
       <section className="page-hero">
         <HeroSlides slides={slides} />
-        <div className="container">
-          {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-          <h1>{title}</h1>
-          {intro && <p className="lead">{intro}</p>}
-        </div>
+        <Stagger className="container" onLoad gap={0.12}>
+          {eyebrow && <StaggerItem><p className="eyebrow">{eyebrow}</p></StaggerItem>}
+          <StaggerItem><h1>{title}</h1></StaggerItem>
+          {intro && <StaggerItem><p className="lead">{intro}</p></StaggerItem>}
+        </Stagger>
       </section>
     );
   }

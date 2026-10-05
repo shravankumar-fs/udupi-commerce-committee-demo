@@ -477,3 +477,11 @@ label.field { display: grid; gap: .35rem; font-size: .88rem; font-weight: 500; c
   .page-hero { min-height: 380px; padding: 96px 0 84px; }
   .page-hero::before { background: linear-gradient(180deg, rgba(12,29,54,.55) 0%, rgba(12,29,54,.88) 100%); }
 }
+
+/* Motion helpers */
+.lift-wrap { height: 100%; }
+.industry-card:hover { transform: none; }
+.objective { background: #fff; }
+.bearers, .objectives, .directors { margin-top: 1.5rem; }
+.directors { margin-top: 1rem; }
+.steps { margin-top: 1.5rem; }

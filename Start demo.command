@@ -8,8 +8,8 @@ if ! command -v npm >/dev/null 2>&1; then
   open "https://nodejs.org"
   read -n 1; exit 1
 fi
-if [ ! -d node_modules ]; then
-  echo "Installing packages (first run only, ~1 minute)..."
+if [ ! -d node_modules ] || [ package.json -nt node_modules/.package-lock.json ]; then
+  echo "Installing packages (first run or after updates, ~1 minute)..."
   npm install || { echo "npm install failed"; read -n 1; exit 1; }
 fi
 ( sleep 6; open "http://localhost:3000" ) &

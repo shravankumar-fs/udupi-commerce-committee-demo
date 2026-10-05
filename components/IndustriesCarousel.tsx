@@ -3,19 +3,20 @@ import { industries } from "@/lib/data";
 import { Carousel } from "./Carousel";
 import { L, T } from "./lang";
 import { Photo } from "./Photo";
+import { Lift } from "./Motion";
 
 export function IndustriesCarousel() {
   return (
     <Carousel label="Industries of Udupi" autoplay={5000}>
       {industries.map((ind) => (
-        <Link key={ind.id} href={`/members/?cat=${ind.cat}`} className="industry-card">
+        <Lift key={ind.id} className="lift-wrap"><Link href={`/members/?cat=${ind.cat}`} className="industry-card">
           <Photo id={ind.photo} ratio="4 / 3" />
           <div className="industry-body">
             <h3><L v={ind.title} /></h3>
             <p className="small"><L v={ind.text} /></p>
             <span className="industry-link"><T en="View businesses →" kn="ಉದ್ಯಮಗಳನ್ನು ನೋಡಿ →" /></span>
           </div>
-        </Link>
+        </Link></Lift>
       ))}
     </Carousel>
   );

@@ -5,6 +5,7 @@ import { L, T } from "@/components/lang";
 import { EventCard, PostRow } from "@/components/Cards";
 import { HeroSearch } from "@/components/HeroSearch";
 import { HeroSlides } from "@/components/Carousel";
+import { Lift, Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { Carousel } from "@/components/Carousel";
 import { IndustriesCarousel } from "@/components/IndustriesCarousel";
 import { Initials, Photo } from "@/components/Photo";
@@ -19,107 +20,115 @@ export default function Home() {
       <section className="hero hero-photo">
         <HeroSlides slides={heroSlides.map((h) => ({ src: photo(h.photo).src, alt: photo(h.photo).title, caption: h.caption, credit: `${photo(h.photo).author}, ${photo(h.photo).license}` }))} />
         <div className="container hero-grid">
-          <div>
+          <Stagger onLoad gap={0.12}>
+            <StaggerItem>
             <p className="eyebrow"><T en="Since 2003 · Udupi district" kn="2003ರಿಂದ · ಉಡುಪಿ ಜಿಲ್ಲೆ" /></p>
+            </StaggerItem>
+            <StaggerItem>
             <h1>
               <T en="The voice of " kn="ಉಡುಪಿಯ " />
               <em><T en="Udupi's" kn="ವ್ಯಾಪಾರ ಸಮುದಾಯದ" /></em>
               <T en=" business community" kn=" ಧ್ವನಿ" />
             </h1>
+            </StaggerItem>
+            <StaggerItem>
             <p className="lead">
               <T
                 en="The Udupi Chamber of Commerce and Industry brings together traders, manufacturers and service businesses to grow trade, represent members to government, and build a stronger local economy."
                 kn="ಉಡುಪಿ ಚೇಂಬರ್ ಆಫ್ ಕಾಮರ್ಸ್ ಆ್ಯಂಡ್ ಇಂಡಸ್ಟ್ರಿ ವ್ಯಾಪಾರ ವೃದ್ಧಿ, ಸರ್ಕಾರದ ಮುಂದೆ ಸದಸ್ಯರ ಪ್ರತಿನಿಧಿತ್ವ ಮತ್ತು ಬಲಿಷ್ಠ ಸ್ಥಳೀಯ ಆರ್ಥಿಕತೆಗಾಗಿ ವ್ಯಾಪಾರಿಗಳು, ತಯಾರಕರು ಮತ್ತು ಸೇವಾ ಉದ್ಯಮಗಳನ್ನು ಒಗ್ಗೂಡಿಸುತ್ತದೆ."
               />
             </p>
+            </StaggerItem>
+            <StaggerItem>
             <div className="hero-actions">
               <Link href="/join/" className="btn btn-green"><T en="Become a member" kn="ಸದಸ್ಯರಾಗಿ" /></Link>
               <Link href="/events/" className="btn btn-ghost"><T en="Upcoming events" kn="ಮುಂಬರುವ ಕಾರ್ಯಕ್ರಮಗಳು" /></Link>
             </div>
-          </div>
-          <HeroSearch />
+            </StaggerItem>
+          </Stagger>
+          <Reveal delay={0.35}><HeroSearch /></Reveal>
         </div>
       </section>
 
       <section className="stats-section">
         <div className="container">
-          <div className="stats">
+          <Stagger className="stats" gap={0.1}>
             {stats.map((s) => (
-              <div className="stat" key={s.value + s.label.en}>
+              <StaggerItem className="stat" key={s.value + s.label.en}>
                 <b>{s.value}</b>
                 <span><L v={s.label} /></span>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       <section className="industries-section">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <div>
               <p className="eyebrow"><T en="Udupi means business" kn="ಉಡುಪಿ ಎಂದರೆ ಉದ್ಯಮ" /></p>
               <h2><T en="The industries that built Udupi" kn="ಉಡುಪಿಯನ್ನು ಕಟ್ಟಿದ ಉದ್ಯಮಗಳು" /></h2>
             </div>
             <Link href="/members/" className="link-more"><T en="Find member businesses →" kn="ಸದಸ್ಯ ಉದ್ಯಮಗಳನ್ನು ಹುಡುಕಿ →" /></Link>
-          </div>
-          <IndustriesCarousel />
+          </Reveal>
+          <Reveal delay={0.1}><IndustriesCarousel /></Reveal>
         </div>
       </section>
 
       <section>
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <div>
               <p className="eyebrow"><T en="What's on" kn="ಕಾರ್ಯಕ್ರಮ ಪಟ್ಟಿ" /></p>
               <h2><T en="Upcoming events" kn="ಮುಂಬರುವ ಕಾರ್ಯಕ್ರಮಗಳು" /></h2>
             </div>
             <Link href="/events/" className="link-more"><T en="All events →" kn="ಎಲ್ಲಾ ಕಾರ್ಯಕ್ರಮಗಳು →" /></Link>
-          </div>
-          <div className="event-list">
-            {upcoming.map((e) => <EventCard key={e.slug} e={e} />)}
-          </div>
+          </Reveal>
+          <Stagger className="event-list" gap={0.08}>
+            {upcoming.map((e) => <StaggerItem key={e.slug}><EventCard e={e} /></StaggerItem>)}
+          </Stagger>
         </div>
       </section>
 
       <section className="section-paper">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <div>
               <p className="eyebrow"><T en="Member directory" kn="ಸದಸ್ಯರ ಡೈರೆಕ್ಟರಿ" /></p>
               <h2><T en="Browse businesses by sector" kn="ವಲಯವಾರು ಉದ್ಯಮಗಳನ್ನು ನೋಡಿ" /></h2>
             </div>
             <Link href="/members/" className="link-more"><T en="Full directory →" kn="ಪೂರ್ಣ ಡೈರೆಕ್ಟರಿ →" /></Link>
-          </div>
-          <div className="cat-grid">
+          </Reveal>
+          <Stagger className="cat-grid" gap={0.04}>
             {categories.map((c) => (
-              <Link key={c.id} href={`/members/?cat=${c.id}`} className="cat-tile">
+              <StaggerItem key={c.id}><Link href={`/members/?cat=${c.id}`} className="cat-tile">
                 <span className="cat-icon" aria-hidden="true">{c.icon}</span>
                 <span>
                   <strong><L v={c.name} /></strong>
                   <span><T en="View businesses →" kn="ಉದ್ಯಮಗಳನ್ನು ನೋಡಿ →" /></span>
                 </span>
-              </Link>
+              </Link></StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       <section>
         <div className="container two-col">
           <div>
-            <div className="section-head">
+            <Reveal className="section-head">
               <div>
                 <p className="eyebrow"><T en="Updates" kn="ಮಾಹಿತಿ" /></p>
                 <h2><T en="News & circulars" kn="ಸುದ್ದಿ ಮತ್ತು ಸುತ್ತೋಲೆಗಳು" /></h2>
               </div>
               <Link href="/news/" className="link-more"><T en="View all →" kn="ಎಲ್ಲಾ ನೋಡಿ →" /></Link>
-            </div>
-            <div className="post-list">
-              {posts.slice(0, 4).map((p) => <PostRow key={p.slug} p={p} />)}
-            </div>
+            </Reveal>
+            <Stagger className="post-list" gap={0.08}>
+              {posts.slice(0, 4).map((p) => <StaggerItem key={p.slug}><PostRow p={p} /></StaggerItem>)}
+            </Stagger>
           </div>
-          <aside className="quote-card">
+          <Reveal as="aside" className="quote-card" delay={0.15}>
             <p className="eyebrow"><T en="Leadership 2026–27" kn="ನಾಯಕತ್ವ 2026–27" /></p>
             <p style={{ fontFamily: "var(--serif)", fontSize: "1.2rem", lineHeight: 1.45 }}>
               <T
@@ -139,32 +148,32 @@ export default function Home() {
               ))}
             </div>
             <Link href="/about/#bearers" className="link-more"><T en="Full team & directors →" kn="ಪೂರ್ಣ ತಂಡ ಮತ್ತು ನಿರ್ದೇಶಕರು →" /></Link>
-          </aside>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-paper">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <div>
               <p className="eyebrow"><T en="Gallery" kn="ಗ್ಯಾಲರಿ" /></p>
               <h2><T en="Our Udupi" kn="ನಮ್ಮ ಉಡುಪಿ" /></h2>
             </div>
             <Link href="/gallery/" className="link-more"><T en="Open gallery →" kn="ಗ್ಯಾಲರಿ ತೆರೆಯಿರಿ →" /></Link>
-          </div>
-          <Carousel label="Photos of Udupi">
+          </Reveal>
+          <Reveal><Carousel label="Photos of Udupi">
             {STRIP.map((id) => (
               <Link key={id} href="/gallery/" className="strip-card">
                 <Photo id={id} ratio="1 / 1" label={photo(id).title} />
               </Link>
             ))}
-          </Carousel>
+          </Carousel></Reveal>
         </div>
       </section>
 
       <section>
         <div className="container">
-          <div className="join-band">
+          <Reveal className="join-band">
             <div>
               <p className="eyebrow" style={{ color: "var(--green-light)" }}><T en="Membership" kn="ಸದಸ್ಯತ್ವ" /></p>
               <h2><T en="Join the businesses shaping Udupi's economy" kn="ಉಡುಪಿಯ ಆರ್ಥಿಕತೆಯನ್ನು ರೂಪಿಸುತ್ತಿರುವ ಉದ್ಯಮಗಳೊಂದಿಗೆ ಸೇರಿ" /></h2>
@@ -178,7 +187,7 @@ export default function Home() {
               <li><T en="Priority stalls at trade fairs" kn="ವ್ಯಾಪಾರ ಮೇಳಗಳಲ್ಲಿ ಮಳಿಗೆ ಆದ್ಯತೆ" /></li>
               <li><T en="A collective voice with the district administration" kn="ಜಿಲ್ಲಾಡಳಿತದ ಮುಂದೆ ಸಾಮೂಹಿಕ ಧ್ವನಿ" /></li>
             </ul>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
