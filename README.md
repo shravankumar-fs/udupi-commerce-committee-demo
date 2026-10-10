@@ -1,24 +1,18 @@
-# Udupi Commerce Committee — demo website (Aghora Labs)
+# Udupi Chamber of Commerce & Industry — website (Aghora Labs)
 
-Next.js 15 demo for the pitch. All content is dummy data in `lib/data.ts`
-(in the real build it moves into Payload CMS).
+Next.js 15 static site (GSAP motion, English / ಕನ್ನಡ toggle). Content lives in `lib/data.ts`; the Chamber's photos are in `public/` and registered in `lib/photos.ts`.
 
 ## Pages
-- `/` Home — hero search, stats, events, sectors, news, gallery, join CTA
-- `/members` Member directory (search + sector + area filters), `/members/[slug]` business page (Call / WhatsApp / Directions / map)
-- `/events`, `/events/[slug]` with registration form
-- `/news`, `/news/[slug]` — circulars, news, press releases, PDF attachment, WhatsApp share
-- `/gallery`, `/gallery/[slug]` albums with lightbox
-- `/about` objectives + office bearers
-- `/join` membership plans, process, application form
-- `/contact` form + map
-- `/admin` **admin panel preview** — show the committee how the secretary adds events/circulars in EN + ಕನ್ನಡ and approves members
-- English / ಕನ್ನಡ toggle in the top bar (remembered per visitor)
+- `/` Home — hero slideshow, stats, news, leadership, President's message band, gallery
+- `/about` Who we are, President's message, office bearers & directors (2026–27), past presidents
+- `/events`, `/events/[slug]` — event details with photos
+- `/news`, `/news/[slug]` — news and circulars, with press cuttings
+- `/gallery`, `/gallery/[slug]` — albums with lightbox
+- `/join` — membership enquiry, `/contact` — office details and map
 
 ## Run
     npm install
     npm run dev        # http://localhost:3000
 
-## Static build / quick hosting
-    npm run build      # outputs ./out
-Drag the `out` folder onto https://app.netlify.com/drop for a shareable link (a pre-built `out` is already included).
+## Static build
+    npm run build      # outputs ./out (not committed)

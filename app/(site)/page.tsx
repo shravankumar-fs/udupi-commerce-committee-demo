@@ -1,16 +1,14 @@
 import Link from "next/link";
-import { bearers, categories, events, heroSlides, posts, stats } from "@/lib/data";
+import { bearers, events, presidentMessage as pm, heroSlides, posts, stats } from "@/lib/data";
 import { photo } from "@/lib/photos";
 import { L, T } from "@/components/lang";
 import { EventCard, PostRow } from "@/components/Cards";
-import { HeroSearch } from "@/components/HeroSearch";
 import { HeroSlides } from "@/components/Carousel";
 import { Lift, Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { Carousel } from "@/components/Carousel";
-import { IndustriesCarousel } from "@/components/IndustriesCarousel";
-import { Initials, Photo } from "@/components/Photo";
+import { Avatar, Photo } from "@/components/Photo";
 
-const STRIP = ["offload", "matha", "university", "carstreet", "paddy", "kaup", "yakshagana", "trawlers", "karkala", "kodi", "pond", "coconut"];
+const STRIP = ["agm-stage-group", "stage-group", "ceremony-lamp-1", "agm-handshake", "hall-audience", "flag-hoisting-1", "agm-dais-1", "office"];
 
 export default function Home() {
   const upcoming = events.filter((e) => e.upcoming).slice(0, 4);
@@ -18,11 +16,11 @@ export default function Home() {
   return (
     <>
       <section className="hero hero-photo">
-        <HeroSlides slides={heroSlides.map((h) => ({ src: photo(h.photo).src, alt: photo(h.photo).title, caption: h.caption, credit: `${photo(h.photo).author}, ${photo(h.photo).license}` }))} />
+        <HeroSlides slides={heroSlides.map((h) => ({ src: photo(h.photo).src, alt: photo(h.photo).title, caption: h.caption, credit: "" }))} />
         <div className="container hero-grid">
           <Stagger onLoad gap={0.12}>
             <StaggerItem>
-            <p className="eyebrow"><T en="Since 2003 · Udupi district" kn="2003ರಿಂದ · ಉಡುಪಿ ಜಿಲ್ಲೆ" /></p>
+            <p className="eyebrow"><T en="Since 1964 · Udupi district" kn="1964ರಿಂದ · ಉಡುಪಿ ಜಿಲ್ಲೆ" /></p>
             </StaggerItem>
             <StaggerItem>
             <h1>
@@ -46,7 +44,6 @@ export default function Home() {
             </div>
             </StaggerItem>
           </Stagger>
-          <Reveal delay={0.35}><HeroSearch /></Reveal>
         </div>
       </section>
 
@@ -63,19 +60,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="industries-section">
-        <div className="container">
-          <Reveal className="section-head">
-            <div>
-              <p className="eyebrow"><T en="Udupi means business" kn="ಉಡುಪಿ ಎಂದರೆ ಉದ್ಯಮ" /></p>
-              <h2><T en="The industries that built Udupi" kn="ಉಡುಪಿಯನ್ನು ಕಟ್ಟಿದ ಉದ್ಯಮಗಳು" /></h2>
-            </div>
-            <Link href="/members/" className="link-more"><T en="Find member businesses →" kn="ಸದಸ್ಯ ಉದ್ಯಮಗಳನ್ನು ಹುಡುಕಿ →" /></Link>
-          </Reveal>
-          <Reveal delay={0.1}><IndustriesCarousel /></Reveal>
-        </div>
-      </section>
-
+      {upcoming.length > 0 && (
       <section>
         <div className="container">
           <Reveal className="section-head">
@@ -90,29 +75,7 @@ export default function Home() {
           </Stagger>
         </div>
       </section>
-
-      <section className="section-paper">
-        <div className="container">
-          <Reveal className="section-head">
-            <div>
-              <p className="eyebrow"><T en="Member directory" kn="ಸದಸ್ಯರ ಡೈರೆಕ್ಟರಿ" /></p>
-              <h2><T en="Browse businesses by sector" kn="ವಲಯವಾರು ಉದ್ಯಮಗಳನ್ನು ನೋಡಿ" /></h2>
-            </div>
-            <Link href="/members/" className="link-more"><T en="Full directory →" kn="ಪೂರ್ಣ ಡೈರೆಕ್ಟರಿ →" /></Link>
-          </Reveal>
-          <Stagger className="cat-grid" gap={0.04}>
-            {categories.map((c) => (
-              <StaggerItem key={c.id}><Link href={`/members/?cat=${c.id}`} className="cat-tile">
-                <span className="cat-icon" aria-hidden="true">{c.icon}</span>
-                <span>
-                  <strong><L v={c.name} /></strong>
-                  <span><T en="View businesses →" kn="ಉದ್ಯಮಗಳನ್ನು ನೋಡಿ →" /></span>
-                </span>
-              </Link></StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
+      )}
 
       <section>
         <div className="container two-col">
@@ -132,14 +95,14 @@ export default function Home() {
             <p className="eyebrow"><T en="Leadership 2026–27" kn="ನಾಯಕತ್ವ 2026–27" /></p>
             <p style={{ fontFamily: "var(--serif)", fontSize: "1.2rem", lineHeight: 1.45 }}>
               <T
-                en="Nataraj Prabhu took charge as President on 30 September 2026, succeeding Ammunje Prabhakar Nayak."
-                kn="ನಟರಾಜ ಪ್ರಭು ಅವರು 2026ರ ಸೆಪ್ಟೆಂಬರ್ 30ರಂದು ಅಮ್ಮುಂಜೆ ಪ್ರಭಾಕರ ನಾಯಕ್ ಅವರಿಂದ ಅಧ್ಯಕ್ಷರಾಗಿ ಅಧಿಕಾರ ಸ್ವೀಕರಿಸಿದರು."
+                en="Nataraj Prabhu took charge as President on 29 September 2026, succeeding Ammunje Prabhakar Nayak."
+                kn="ನಟರಾಜ ಪ್ರಭು ಅವರು 2026ರ ಸೆಪ್ಟೆಂಬರ್ 29ರಂದು ಅಮ್ಮುಂಜೆ ಪ್ರಭಾಕರ ನಾಯಕ್ ಅವರಿಂದ ಅಧ್ಯಕ್ಷರಾಗಿ ಅಧಿಕಾರ ಸ್ವೀಕರಿಸಿದರು."
               />
             </p>
             <div className="leader-list">
               {leaders.map((b, i) => (
                 <div className="who" key={b.name}>
-                  <Initials name={b.name} hue={[20, 340, 210, 140][i]} />
+                  <Avatar name={b.name} hue={[20, 340, 210, 140][i]} src={b.photo} />
                   <div>
                     <b>{b.name}</b>
                     <span className="meta"><L v={b.role} /></span>
@@ -152,16 +115,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="parallax-band message-band">
+        <div className="band-bg" data-parallax="0.12" style={{ backgroundImage: "url(/office.jpeg)" }} />
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow" style={{ color: "var(--green-light)" }}><T en="President's message" kn="ಅಧ್ಯಕ್ಷರ ಸಂದೇಶ" /></p>
+            <blockquote lang="en">“{pm.visionQuote}”</blockquote>
+            <p className="band-by">— {pm.signoff.name}, President 2026–27</p>
+            <Link href="/about/#message" className="btn btn-light"><T en="Read the full message" kn="ಪೂರ್ಣ ಸಂದೇಶ ಓದಿ" /></Link>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section-paper">
         <div className="container">
           <Reveal className="section-head">
             <div>
               <p className="eyebrow"><T en="Gallery" kn="ಗ್ಯಾಲರಿ" /></p>
-              <h2><T en="Our Udupi" kn="ನಮ್ಮ ಉಡುಪಿ" /></h2>
+              <h2><T en="From the Chamber" kn="ಚೇಂಬರ್‌ನಿಂದ" /></h2>
             </div>
             <Link href="/gallery/" className="link-more"><T en="Open gallery →" kn="ಗ್ಯಾಲರಿ ತೆರೆಯಿರಿ →" /></Link>
           </Reveal>
-          <Reveal><Carousel label="Photos of Udupi">
+          <Reveal><Carousel label="Chamber photos">
             {STRIP.map((id) => (
               <Link key={id} href="/gallery/" className="strip-card">
                 <Photo id={id} ratio="1 / 1" label={photo(id).title} />
@@ -177,16 +152,9 @@ export default function Home() {
             <div>
               <p className="eyebrow" style={{ color: "var(--green-light)" }}><T en="Membership" kn="ಸದಸ್ಯತ್ವ" /></p>
               <h2><T en="Join the businesses shaping Udupi's economy" kn="ಉಡುಪಿಯ ಆರ್ಥಿಕತೆಯನ್ನು ರೂಪಿಸುತ್ತಿರುವ ಉದ್ಯಮಗಳೊಂದಿಗೆ ಸೇರಿ" /></h2>
-              <p className="muted-on-dark"><T en="Apply online in 3 minutes. The office will verify and confirm within 3 working days." kn="3 ನಿಮಿಷದಲ್ಲಿ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ. 3 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ಕಚೇರಿ ದೃಢೀಕರಿಸುತ್ತದೆ." /></p>
-              <Link href="/join/" className="btn btn-light"><T en="Apply for membership" kn="ಸದಸ್ಯತ್ವಕ್ಕೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ" /></Link>
+              <p className="muted-on-dark"><T en="Reach the Chamber office to know about membership." kn="ಸದಸ್ಯತ್ವದ ಬಗ್ಗೆ ತಿಳಿಯಲು ಚೇಂಬರ್ ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ." /></p>
+              <Link href="/join/" className="btn btn-light"><T en="Membership enquiry" kn="ಸದಸ್ಯತ್ವ ವಿಚಾರಣೆ" /></Link>
             </div>
-            <ul>
-              <li><T en="Your own business page in the member directory" kn="ಸದಸ್ಯರ ಡೈರೆಕ್ಟರಿಯಲ್ಲಿ ನಿಮ್ಮದೇ ಉದ್ಯಮ ಪುಟ" /></li>
-              <li><T en="Government circulars on WhatsApp, the day they're issued" kn="ಸರ್ಕಾರಿ ಸುತ್ತೋಲೆಗಳು ಅದೇ ದಿನ ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ" /></li>
-              <li><T en="Seminars on GST, tourism and finance" kn="ಜಿಎಸ್‌ಟಿ, ಪ್ರವಾಸೋದ್ಯಮ ಮತ್ತು ಹಣಕಾಸು ವಿಚಾರಸಂಕಿರಣಗಳು" /></li>
-              <li><T en="Priority stalls at trade fairs" kn="ವ್ಯಾಪಾರ ಮೇಳಗಳಲ್ಲಿ ಮಳಿಗೆ ಆದ್ಯತೆ" /></li>
-              <li><T en="A collective voice with the district administration" kn="ಜಿಲ್ಲಾಡಳಿತದ ಮುಂದೆ ಸಾಮೂಹಿಕ ಧ್ವನಿ" /></li>
-            </ul>
           </Reveal>
         </div>
       </section>

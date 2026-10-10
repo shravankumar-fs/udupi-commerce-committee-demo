@@ -1,42 +1,29 @@
-// Freely licensed photos of Udupi district from Wikimedia Commons (stand-ins for the chamber's own photos).
-// Each one needs its credit shown — see /credits.
-export type PhotoInfo = { id: string; file: string; src: string; title: string; author: string; license: string };
-
-const T = (path: string) => `https://upload.wikimedia.org/wikipedia/commons/thumb/${path}`;
+// The Chamber's own photos, served from /public.
+export type PhotoInfo = { id: string; src: string; title: string; kn: string };
 
 export const photos: PhotoInfo[] = [
-  { id: "chariots", file: "Udupi Krishna Mutt chariots.jpg", src: T("2/26/Udupi_Krishna_Mutt_chariots.jpg/1280px-Udupi_Krishna_Mutt_chariots.jpg"), title: "Chariots at Car Street, Udupi", author: "Sridhar Rao", license: "CC BY-SA 4.0" },
-  { id: "matha", file: "Udupi Sri Krishna Matha, Udupi, Karnataka, India (2014).jpg", src: T("e/e0/Udupi_Sri_Krishna_Matha%2C_Udupi%2C_Karnataka%2C_India_%282014%29.jpg/1280px-Udupi_Sri_Krishna_Matha%2C_Udupi%2C_Karnataka%2C_India_%282014%29.jpg"), title: "Sri Krishna Matha, Udupi", author: "alexrudd", license: "CC BY-SA 2.0" },
-  { id: "pond", file: "Udupi Sri krishna matha Temple pond.jpg", src: T("8/89/Udupi_Sri_krishna_matha_Temple_pond.jpg/1280px-Udupi_Sri_krishna_matha_Temple_pond.jpg"), title: "Madhva Sarovara, Sri Krishna Matha", author: "Outlander07", license: "CC BY-SA 4.0" },
-  { id: "carstreet", file: "Naalbeedi.jpg", src: T("6/6a/Naalbeedi.jpg/1280px-Naalbeedi.jpg"), title: "Car Street (Rathabeedi), Udupi", author: "Rajaramraok", license: "CC BY 3.0" },
-  { id: "citycentre", file: "Udupi City Centre.jpg", src: T("2/2e/Udupi_City_Centre.jpg/1280px-Udupi_City_Centre.jpg"), title: "Udupi city centre", author: "Creativedigitals", license: "CC BY-SA 4.0" },
-  { id: "harbour", file: "Malpe(24-1-08).JPG", src: T("5/56/Malpe%2824-1-08%29.JPG/1280px-Malpe%2824-1-08%29.JPG"), title: "Malpe fishing harbour", author: "Rudolph A. Furtado", license: "Public domain" },
-  { id: "boats", file: "Ind18-140 Schiffsgewusel.jpg", src: T("5/56/Ind18-140_Schiffsgewusel.jpg/1280px-Ind18-140_Schiffsgewusel.jpg"), title: "Fishing boats, Malpe", author: "Lusi Lindwurm", license: "CC BY-SA 4.0" },
-  { id: "malpe", file: "Malpe Beach-02.jpg", src: T("8/89/Malpe_Beach-02.jpg/1280px-Malpe_Beach-02.jpg"), title: "Malpe beach", author: "S N Barid", license: "CC BY-SA 4.0" },
-  { id: "sunrise", file: "Sunrise at Malpe Beach.jpg", src: T("d/d4/Sunrise_at_Malpe_Beach.jpg/1280px-Sunrise_at_Malpe_Beach.jpg"), title: "Sunrise at Malpe beach", author: "KshitizBathwal / Skyscape Photography", license: "CC BY-SA 4.0" },
-  { id: "stmarys", file: "St. mary's island, Udupi 7.jpg", src: T("9/9a/St._mary%27s_island%2C_Udupi_7.jpg/1280px-St._mary%27s_island%2C_Udupi_7.jpg"), title: "St. Mary's Island", author: "Nativeplants garden", license: "CC BY-SA 4.0" },
-  { id: "kaup", file: "Kaup light house (2146230882).jpg", src: T("4/4b/Kaup_light_house_%282146230882%29.jpg/1280px-Kaup_light_house_%282146230882%29.jpg"), title: "Kaup lighthouse", author: "Arun Keerthi K. Barboza", license: "CC BY 2.0" },
-  { id: "manipal", file: "Night in Manipal.jpg", src: T("3/30/Night_in_Manipal.jpg/1280px-Night_in_Manipal.jpg"), title: "Manipal at night", author: "shantheri", license: "CC BY-SA 4.0" },
-  { id: "yakshagana", file: "Yakshagana 12398.jpg", src: T("e/ec/Yakshagana_12398.jpg/1280px-Yakshagana_12398.jpg"), title: "Yakshagana performance", author: "Vandana bhat kaustubha", license: "CC BY-SA 4.0" },
-  { id: "offload", file: "Offloading fish from Trawlers to wharf(Malpe).JPG", src: T("1/1c/Offloading_fish_from_Trawlers_to_wharf%28Malpe%29.JPG/1280px-Offloading_fish_from_Trawlers_to_wharf%28Malpe%29.JPG"), title: "Unloading the catch at Malpe harbour", author: "Rudolph A. Furtado", license: "Public domain" },
-  { id: "trawlers", file: "Fishing trawlers(Malpe).JPG", src: T("5/58/Fishing_trawlers%28Malpe%29.JPG/1280px-Fishing_trawlers%28Malpe%29.JPG"), title: "Fishing trawlers, Malpe", author: "Rudolph A. Furtado", license: "Public domain" },
-  { id: "cashew", file: "Factory workers engaged in deshelling, scooping, and kernel separation of cashew nuts.jpg", src: T("a/a6/Factory_workers_engaged_in_deshelling%2C_scooping%2C_and_kernel_separation_of_cashew_nuts.jpg/1280px-Factory_workers_engaged_in_deshelling%2C_scooping%2C_and_kernel_separation_of_cashew_nuts.jpg"), title: "Cashew processing", author: "Sandeep Vengurlekar", license: "CC0" },
-  { id: "tiles", file: "Mangalore tiled roof 20071228.jpg", src: T("8/8c/Mangalore_tiled_roof_20071228.jpg/1280px-Mangalore_tiled_roof_20071228.jpg"), title: "Mangalore-pattern clay tile roofs", author: "Premkudva", license: "CC BY-SA 3.0" },
-  { id: "hospital", file: "Kasturba Hospital, Manipal - views around (10).jpg", src: T("7/76/Kasturba_Hospital%2C_Manipal_-_views_around_%2810%29.jpg/1280px-Kasturba_Hospital%2C_Manipal_-_views_around_%2810%29.jpg"), title: "Kasturba Hospital, Manipal", author: "Vinayaraj", license: "CC BY-SA 4.0" },
-  { id: "university", file: "MU panoramic.JPG", src: T("9/96/MU_panoramic.JPG/1280px-MU_panoramic.JPG"), title: "Manipal university campus", author: "Gsingh", license: "CC BY 3.0" },
-  { id: "mitplaza", file: "MIT Student Plaza .jpg", src: T("e/ee/MIT_Student_Plaza_.jpg/1280px-MIT_Student_Plaza_.jpg"), title: "Student Plaza, MIT Manipal", author: "KshitizBathwal / Skyscape Photography", license: "CC BY-SA 4.0" },
-  { id: "bank", file: "Canara Institute of Bank Management(formerly Syndicate Institute of Bank Management),Manipal.jpg", src: T("8/8c/Canara_Institute_of_Bank_Management%28formerly_Syndicate_Institute_of_Bank_Management%29%2CManipal.jpg/1280px-Canara_Institute_of_Bank_Management%28formerly_Syndicate_Institute_of_Bank_Management%29%2CManipal.jpg"), title: "Institute of Bank Management, Manipal", author: "Raghavan2010", license: "CC BY-SA 4.0" },
-  { id: "paddy", file: "Cultivated paddy fields(Barkur).JPG", src: T("0/0e/Cultivated_paddy_fields%28Barkur%29.JPG/1280px-Cultivated_paddy_fields%28Barkur%29.JPG"), title: "Paddy fields, Barkur", author: "Rudolph A. Furtado", license: "Public domain" },
-  { id: "coconut", file: "Barkur coconut plantation irrigation.JPG", src: T("f/f0/Barkur_coconut_plantation_irrigation.JPG/1280px-Barkur_coconut_plantation_irrigation.JPG"), title: "Coconut plantation, Barkur", author: "Rudolph A. Furtado", license: "Public domain" },
-  { id: "dosa", file: "Masala Dosa at Sri Udupi Vihar, Bengaluru.JPG", src: T("7/76/Masala_Dosa_at_Sri_Udupi_Vihar%2C_Bengaluru.JPG/1280px-Masala_Dosa_at_Sri_Udupi_Vihar%2C_Bengaluru.JPG"), title: "Udupi-style masala dosa", author: "Kiranrad", license: "CC BY-SA 4.0" },
-  { id: "station", file: "Udupi railway station 01.jpg", src: T("1/10/Udupi_railway_station_01.jpg/1280px-Udupi_railway_station_01.jpg"), title: "Udupi railway station", author: "Ganesh Mohan T", license: "CC BY-SA 4.0" },
-  { id: "nh66", file: "Padubidri NH 66 and State highway 1 intersection.jpg", src: T("6/6f/Padubidri_NH_66_and_State_highway_1_intersection.jpg/1280px-Padubidri_NH_66_and_State_highway_1_intersection.jpg"), title: "NH 66 at Padubidri", author: "Shaymmm", license: "CC BY 4.0" },
-  { id: "kundapura", file: "Kundapura.jpg", src: T("4/46/Kundapura.jpg/1280px-Kundapura.jpg"), title: "Kundapura", author: "Akshay S A", license: "CC BY-SA 4.0" },
-  { id: "kodi", file: "Kodi beach kundapura.jpg", src: T("c/c9/Kodi_beach_kundapura.jpg/1280px-Kodi_beach_kundapura.jpg"), title: "Kodi beach, Kundapura", author: "Akshay S A", license: "CC BY-SA 4.0" },
-  { id: "malpeboats", file: "Malpe (2071132608).jpg", src: T("1/13/Malpe_%282071132608%29.jpg/1280px-Malpe_%282071132608%29.jpg"), title: "Malpe", author: "Arun Keerthi K. Barboza", license: "CC BY 2.0" },
-  { id: "karkala", file: "Gomateshwara Statue and around, Karkala VRVTMRKOLLUR2015 (10).jpg", src: T("b/b7/Gomateshwara_Statue_and_around%2C_Karkala_VRVTMRKOLLUR2015_%2810%29.jpg/1280px-Gomateshwara_Statue_and_around%2C_Karkala_VRVTMRKOLLUR2015_%2810%29.jpg"), title: "Gomateshwara, Karkala", author: "Vinayaraj", license: "CC BY-SA 4.0" },
-  { id: "parashurama", file: "Udupi Parashurama Temple View from the top March 2025.jpg", src: T("7/76/Udupi_Parashurama_Temple_View_from_the_top_March_2025.jpg/1280px-Udupi_Parashurama_Temple_View_from_the_top_March_2025.jpg"), title: "View from Parashurama theme park", author: "Shriram kg", license: "CC0" },
+  { id: "office", src: "/office.jpeg", title: "Chamber Tower, Indrali, Udupi", kn: "ಚೇಂಬರ್ ಟವರ್, ಇಂದ್ರಾಳಿ, ಉಡುಪಿ" },
+  { id: "committee-banner", src: "/committee-2026-27.jpeg", title: "New office bearers & board of directors, 2026–27", kn: "ನೂತನ ಪದಾಧಿಕಾರಿಗಳು ಮತ್ತು ನಿರ್ದೇಶಕರ ಮಂಡಳಿ, 2026–27" },
+  { id: "ceremony-lamp-1", src: "/location_and_comittee_gallery/ceremony-lamp-1.jpeg", title: "Lamp-lighting and felicitation on stage", kn: "ವೇದಿಕೆಯಲ್ಲಿ ದೀಪ ಬೆಳಗುವಿಕೆ ಮತ್ತು ಸನ್ಮಾನ" },
+  { id: "ceremony-lamp-2", src: "/location_and_comittee_gallery/ceremony-lamp-2.jpeg", title: "Lamp-lighting and felicitation on stage", kn: "ವೇದಿಕೆಯಲ್ಲಿ ದೀಪ ಬೆಳಗುವಿಕೆ ಮತ್ತು ಸನ್ಮಾನ" },
+  { id: "stage-group", src: "/location_and_comittee_gallery/stage-group.jpeg", title: "Office bearers and directors on stage", kn: "ವೇದಿಕೆಯಲ್ಲಿ ಪದಾಧಿಕಾರಿಗಳು ಮತ್ತು ನಿರ್ದೇಶಕರು" },
+  { id: "hall-audience", src: "/location_and_comittee_gallery/hall-audience.jpeg", title: "Members gathered in the hall", kn: "ಸಭಾಂಗಣದಲ್ಲಿ ಸೇರಿದ ಸದಸ್ಯರು" },
+  { id: "flag-hoisting-1", src: "/location_and_comittee_gallery/flag-hoisting-1.jpeg", title: "Flag hoisting at the Chamber", kn: "ಚೇಂಬರ್‌ನಲ್ಲಿ ಧ್ವಜಾರೋಹಣ" },
+  { id: "flag-hoisting-2", src: "/location_and_comittee_gallery/flag-hoisting-2.jpeg", title: "Flag hoisting at the Chamber", kn: "ಚೇಂಬರ್‌ನಲ್ಲಿ ಧ್ವಜಾರೋಹಣ" },
+  { id: "committee-group", src: "/location_and_comittee_gallery/committee-group.jpeg", title: "Committee members at the Annual General Meeting", kn: "ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯಲ್ಲಿ ಸಮಿತಿ ಸದಸ್ಯರು" },
+  { id: "agm-stage-group", src: "/past_events/agm-stage-group.jpeg", title: "Committee members at the 23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯಲ್ಲಿ ಸಮಿತಿ ಸದಸ್ಯರು" },
+  { id: "agm-dais-1", src: "/past_events/agm-dais-1.jpeg", title: "The dais at the 23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯ ವೇದಿಕೆ" },
+  { id: "agm-audience-1", src: "/past_events/agm-audience-1.jpeg", title: "Members at the 23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯಲ್ಲಿ ಸದಸ್ಯರು" },
+  { id: "agm-audience-2", src: "/past_events/agm-audience-2.jpeg", title: "Members at the 23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯಲ್ಲಿ ಸದಸ್ಯರು" },
+  { id: "agm-speaker-1", src: "/past_events/agm-speaker-1.jpeg", title: "Addressing the 23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯಲ್ಲಿ ಭಾಷಣ" },
+  { id: "agm-speaker-2", src: "/past_events/agm-speaker-2.jpeg", title: "Addressing the 23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯಲ್ಲಿ ಭಾಷಣ" },
+  { id: "agm-handshake", src: "/past_events/agm-handshake.jpeg", title: "Office bearers greet each other at the AGM", kn: "ಮಹಾಸಭೆಯಲ್ಲಿ ಪದಾಧಿಕಾರಿಗಳ ಶುಭಾಶಯ" },
+  { id: "agm-felicitation", src: "/past_events/agm-felicitation.jpeg", title: "Handing over papers at the AGM", kn: "ಮಹಾಸಭೆಯಲ್ಲಿ ದಾಖಲೆಗಳ ಹಸ್ತಾಂತರ" },
+  { id: "agm-speaker-portrait", src: "/past_events/agm-speaker-portrait.jpeg", title: "Speaking at the 23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯಲ್ಲಿ ಮಾತನಾಡುತ್ತಿರುವುದು" },
+  { id: "agm-president-bouquet", src: "/news_cutouts/agm-president-bouquet.jpeg", title: "Outgoing President greets the new President at the AGM", kn: "ನಿರ್ಗಮಿತ ಅಧ್ಯಕ್ಷರು ನೂತನ ಅಧ್ಯಕ್ಷರನ್ನು ಅಭಿನಂದಿಸುತ್ತಿರುವುದು" },
+  { id: "news-vijaya-karnataka", src: "/news_cutouts/news-vijaya-karnataka.jpeg", title: "Vijaya Karnataka, 30 Sep 2026 — Nataraj Prabhu takes charge as President", kn: "ವಿಜಯ ಕರ್ನಾಟಕ, 30 ಸೆಪ್ಟೆಂಬರ್ 2026 — ನಟರಾಜ ಪ್ರಭು ಅಧ್ಯಕ್ಷರಾಗಿ ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
+  { id: "news-kannada-prabha", src: "/news_cutouts/news-kannada-prabha.jpeg", title: "Kannada Prabha, 1 Oct 2026 — UCCI new President takes charge", kn: "ಕನ್ನಡಪ್ರಭ, 1 ಅಕ್ಟೋಬರ್ 2026 — ಯುಸಿಸಿಐ ಅಧ್ಯಕ್ಷರಾಗಿ ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
+  { id: "news-udupi-cutout", src: "/news_cutouts/news-udupi-cutout.jpeg", title: "Press report — Nataraj Prabhu takes charge as new President", kn: "ಪತ್ರಿಕಾ ವರದಿ — ನೂತನ ಅಧ್ಯಕ್ಷರಾಗಿ ನಟರಾಜ ಪ್ರಭು ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
 ];
 
 export const photo = (id: string) => photos.find((p) => p.id === id)!;
-export const commonsPage = (file: string) => `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replace(/ /g, "_"))}`;

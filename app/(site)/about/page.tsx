@@ -1,8 +1,8 @@
-import { bearers, org, presidents, stateCommittee } from "@/lib/data";
+import { bearers, org, presidentMessage as pm, presidents, stateCommittee } from "@/lib/data";
 import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { DateText, L, T } from "@/components/lang";
 import { PageHead } from "@/components/Cards";
-import { Initials, Photo } from "@/components/Photo";
+import { Avatar, Photo } from "@/components/Photo";
 import { Carousel } from "@/components/Carousel";
 import { photo } from "@/lib/photos";
 
@@ -23,9 +23,9 @@ export default function AboutPage() {
   return (
     <>
       <PageHead
-        photos={["citycentre", "bank", "carstreet"]}
+        photos={["office", "stage-group", "agm-stage-group"]}
         eyebrow={<T en="About the Chamber" kn="ಚೇಂಬರ್ ಬಗ್ಗೆ" />}
-        title={<T en="Udupi's chamber of commerce, since 2003" kn="2003ರಿಂದ ಉಡುಪಿಯ ವಾಣಿಜ್ಯ ಮಂಡಳಿ" />}
+        title={<T en="Udupi's chamber of commerce, since 1964" kn="1964ರಿಂದ ಉಡುಪಿಯ ವಾಣಿಜ್ಯ ಮಂಡಳಿ" />}
         intro={<T en="The Udupi Chamber of Commerce and Industry (UCCI) brings together traders, manufacturers and service businesses of Udupi district — like the chambers of commerce in Mumbai or Bengaluru, rooted in our coastal town." kn="ಉಡುಪಿ ಚೇಂಬರ್ ಆಫ್ ಕಾಮರ್ಸ್ ಆ್ಯಂಡ್ ಇಂಡಸ್ಟ್ರಿ (UCCI) ಉಡುಪಿ ಜಿಲ್ಲೆಯ ವ್ಯಾಪಾರಿಗಳು, ತಯಾರಕರು ಮತ್ತು ಸೇವಾ ಉದ್ಯಮಗಳನ್ನು ಒಗ್ಗೂಡಿಸುತ್ತದೆ." />}
       />
       <section>
@@ -34,19 +34,20 @@ export default function AboutPage() {
             <h2><T en="Who we are" kn="ನಾವು ಯಾರು" /></h2>
             <p className="lead">
               <T
-                en="UCCI was registered on 5 February 2003 as a not-for-profit company limited by guarantee. It works from Chamber Tower on Railway Godown Road, Indrali, and is led by an elected President, office bearers and a board of directors who serve one-year terms."
-                kn="UCCI 2003ರ ಫೆಬ್ರವರಿ 5ರಂದು ಲಾಭರಹಿತ ಕಂಪನಿಯಾಗಿ ನೋಂದಣಿಯಾಯಿತು. ಇಂದ್ರಾಳಿಯ ರೈಲ್ವೇ ಗೋಡೌನ್ ರಸ್ತೆಯ ಚೇಂಬರ್ ಟವರ್‌ನಿಂದ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಚುನಾಯಿತ ಅಧ್ಯಕ್ಷರು, ಪದಾಧಿಕಾರಿಗಳು ಮತ್ತು ನಿರ್ದೇಶಕರ ಮಂಡಳಿ ಇದನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ."
+                en="UCCI was established in 1964 and is registered (5 February 2003) as a not-for-profit company limited by guarantee. It works from Chamber Tower on Railway Godown Road, Indrali, and is led by an elected President, office bearers and a board of directors who serve one-year terms."
+                kn="UCCI 1964ರಲ್ಲಿ ಸ್ಥಾಪನೆಯಾಗಿದ್ದು, 2003ರ ಫೆಬ್ರವರಿ 5ರಂದು ಲಾಭರಹಿತ ಕಂಪನಿಯಾಗಿ ನೋಂದಣಿಯಾಗಿದೆ. ಇಂದ್ರಾಳಿಯ ರೈಲ್ವೇ ಗೋಡೌನ್ ರಸ್ತೆಯ ಚೇಂಬರ್ ಟವರ್‌ನಿಂದ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಚುನಾಯಿತ ಅಧ್ಯಕ್ಷರು, ಪದಾಧಿಕಾರಿಗಳು ಮತ್ತು ನಿರ್ದೇಶಕರ ಮಂಡಳಿ ಇದನ್ನು ಮುನ್ನಡೆಸುತ್ತದೆ."
               />
             </p>
             <dl className="facts">
-              <div><dt><T en="Registered" kn="ನೋಂದಣಿ" /></dt><dd><DateText iso={org.incorporated} /></dd></div>
+              <div><dt><T en="Established" kn="ಸ್ಥಾಪನೆ" /></dt><dd>1964</dd></div>
+              <div><dt><T en="Registered as a company" kn="ಕಂಪನಿಯಾಗಿ ನೋಂದಣಿ" /></dt><dd><DateText iso={org.incorporated} /></dd></div>
               <div><dt><T en="Type" kn="ಪ್ರಕಾರ" /></dt><dd><T en="Not-for-profit (company limited by guarantee)" kn="ಲಾಭರಹಿತ ಸಂಸ್ಥೆ" /></dd></div>
               <div><dt><T en="Office" kn="ಕಚೇರಿ" /></dt><dd><L v={org.address} /></dd></div>
             </dl>
           </div>
           <div className="about-carousel">
-            <Carousel label="Udupi at a glance" autoplay={4500}>
-              {["citycentre", "bank", "offload", "university", "carstreet"].map((id) => (
+            <Carousel label="The Chamber at a glance" autoplay={4500}>
+              {["office", "agm-dais-1", "hall-audience", "committee-group", "ceremony-lamp-1"].map((id) => (
                 <Photo key={id} id={id} ratio="4 / 3" label={photo(id).title} />
               ))}
             </Carousel>
@@ -68,6 +69,33 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section id="message" className="section-paper">
+        <div className="container message-grid">
+          <Reveal className="message-side">
+            <div className="message-portrait" data-parallax="0.04">
+              <img src="/Comittee_Board_members/Nataraj_Prabhu.jpeg" alt="Nataraj Prabhu, President" />
+            </div>
+            <b>{pm.signoff.name}</b>
+            <span className="meta"><T en="President, 2026–27" kn="ಅಧ್ಯಕ್ಷರು, 2026–27" /></span>
+          </Reveal>
+          <div className="message-body" lang="en">
+            <p className="eyebrow"><T en="President's message" kn="ಅಧ್ಯಕ್ಷರ ಸಂದೇಶ" /><span className="meta" style={{ textTransform: "none", letterSpacing: 0 }}> <T en="" kn="· ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ" /></span></p>
+            <h2>{pm.title}</h2>
+            {pm.intro.map((t) => <p key={t}>{t}</p>)}
+            <blockquote className="vision">“{pm.visionQuote}”</blockquote>
+            <p>{pm.vision}</p>
+            <h3>Our Priorities</h3>
+            <ul className="priorities">{pm.priorities.map((t) => <li key={t}>{t}</li>)}</ul>
+            {pm.sections.map((sec) => (
+              <div key={sec.h}><h3>{sec.h}</h3>{sec.p.map((t) => <p key={t}>{t}</p>)}</div>
+            ))}
+            <p className="message-closing">{pm.closing}</p>
+            <p>{pm.thanks}</p>
+            <p className="signoff">With warm regards,<br /><b>{pm.signoff.name}</b><br />{pm.signoff.role}<br /><em>“{pm.motto}”</em></p>
+          </div>
+        </div>
+      </section>
+
       <section id="bearers">
         <div className="container">
           <p className="eyebrow"><T en="2026 – 27" kn="2026 – 27" /></p>
@@ -75,10 +103,11 @@ export default function AboutPage() {
           <Stagger className="bearers" gap={0.07}>
             {officers.map((b, i) => (
               <StaggerItem className={`bearer ${i === 0 ? "bearer-lead" : ""}`} key={b.name}>
-                <Initials name={b.name} hue={HUES[i]} />
+                <Avatar name={b.name} hue={HUES[i]} src={b.photo} />
                 <div>
                   <b>{b.name}</b>
                   <span className="meta"><L v={b.role} /></span>
+                  {b.company && <span className="meta company">{b.company}</span>}
                 </div>
               </StaggerItem>
             ))}
@@ -87,12 +116,12 @@ export default function AboutPage() {
           <Reveal className="directors">
             {directors.map((d, i) => (
               <div className="director" key={d.name}>
-                <Initials name={d.name} hue={HUES[(i + 6) % HUES.length]} />
-                <span>{d.name}</span>
+                <Avatar name={d.name} hue={HUES[(i + 6) % HUES.length]} src={d.photo} />
+                <span>{d.name}{d.company && <em className="meta company">{d.company}</em>}</span>
               </div>
             ))}
             <div className="director">
-              <Initials name={stateCommittee.name} hue={30} />
+              <Avatar name={stateCommittee.name} hue={30} src={stateCommittee.photo} />
               <span>{stateCommittee.name} <em className="meta">· <L v={stateCommittee.role} /></em></span>
             </div>
           </Reveal>
@@ -101,16 +130,19 @@ export default function AboutPage() {
 
       <section className="section-paper">
         <div className="container">
-          <h2><T en="Presidents of the Chamber" kn="ಚೇಂಬರ್‌ನ ಅಧ್ಯಕ್ಷರು" /></h2>
-          <p className="small" style={{ maxWidth: 640 }}>
-            <T en="From news reports. Names of the founding members will be added from the Chamber's records." kn="ಪತ್ರಿಕಾ ವರದಿಗಳಿಂದ. ಸಂಸ್ಥಾಪಕ ಸದಸ್ಯರ ಹೆಸರುಗಳನ್ನು ಚೇಂಬರ್ ದಾಖಲೆಗಳಿಂದ ಸೇರಿಸಲಾಗುವುದು." />
-          </p>
-          <Reveal><ol className="timeline">
-            <li><b>2003</b><span><T en="Chamber registered" kn="ಚೇಂಬರ್ ನೋಂದಣಿ" /></span></li>
-            {presidents.map((p) => (
-              <li key={p.name}><b>{p.name}</b><span><L v={p.note} /></span></li>
+          <h2><T en="Past presidents" kn="ಹಿಂದಿನ ಅಧ್ಯಕ್ಷರು" /></h2>
+          <Reveal><ol className="presidents">
+            {[...presidents].reverse().map((p) => (
+              <li key={p.name}>
+                <img src={p.photo} alt={p.name} loading="lazy" />
+                <b>{p.name}</b>
+                <span className="meta">{p.term}</span>
+              </li>
             ))}
           </ol></Reveal>
+          <p className="small" style={{ marginTop: "1.25rem" }}>
+            <T en="Current President: Nataraj Prabhu, 2026–27." kn="ಹಾಲಿ ಅಧ್ಯಕ್ಷರು: ನಟರಾಜ ಪ್ರಭು, 2026–27." />
+          </p>
         </div>
       </section>
     </>

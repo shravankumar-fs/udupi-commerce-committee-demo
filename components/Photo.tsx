@@ -1,15 +1,20 @@
+"use client";
+import { useLang } from "./lang";
 import { photo as getPhoto } from "@/lib/photos";
 
-// Shows a real photo when `id` is given (Wikimedia Commons, credited on /credits),
+// Shows one of the Chamber's own photos (lib/photos.ts) when `id` is given,
 // otherwise a warm placeholder.
 export function Photo({ id, hue = 20, label, ratio = "4 / 3", seed = 0, eager }: { id?: string; hue?: number; label?: string; ratio?: string; seed?: number; eager?: boolean }) {
+  const { lang } = useLang();
   const p = id ? getPhoto(id) : undefined;
+  const title = p ? (lang === "kn" ? p.kn : p.title) : "";
+  const shown = p && label === p.title ? title : label;
   if (p)
     return (
       <div className="photo" style={{ aspectRatio: ratio }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.src} alt={p.title} loading={eager ? "eager" : "lazy"} />
-        {label && <span className="photo-label">{label}</span>}
+        <img src={p.src} alt={title} loading={eager ? "eager" : "lazy"} />
+        {shown && <span className="photo-label">{shown}</span>}
       </div>
     );
   const a = `hsl(${hue} 30% ${64 - (seed % 3) * 6}%)`;
@@ -24,6 +29,12 @@ export function Photo({ id, hue = 20, label, ratio = "4 / 3", seed = 0, eager }:
       {label && <span className="photo-label">{label}</span>}
     </div>
   );
+}
+
+export function Avatar({ name, hue, src }: { name: string; hue: number; src?: string }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  if (src) return <img className="avatar" src={src} alt={name} loading="lazy" />;
+  return <Initials name={name} hue={hue} />;
 }
 
 export function Initials({ name, hue }: { name: string; hue: number }) {

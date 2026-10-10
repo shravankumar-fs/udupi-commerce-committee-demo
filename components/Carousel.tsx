@@ -68,7 +68,7 @@ export function HeroSlides({ slides }: { slides: { src: string; alt: string; cap
   }, [slides.length]);
   return (
     <>
-      <div className="hero-slides" aria-hidden="true">
+      <div className="hero-slides" data-parallax="0.08" aria-hidden="true">
         {slides.map((s, k) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img key={s.src} src={s.src} alt="" className={k === i ? "on" : ""} loading={k === 0 ? "eager" : "lazy"} />

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { events } from "@/lib/data";
 import { DateText, L, T } from "@/components/lang";
 import { Photo } from "@/components/Photo";
-import { RegisterBox } from "@/components/RegisterBox";
+import { Album } from "@/components/Album";
 
 export function generateStaticParams() {
   return events.map((e) => ({ slug: e.slug }));
@@ -37,23 +37,18 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
             <h2 style={{ fontSize: "1.4rem", marginTop: "2rem" }}><T en="About this event" kn="ಕಾರ್ಯಕ್ರಮದ ಬಗ್ಗೆ" /></h2>
             <p><L v={e.summary} /></p>
             {e.source && <p className="small">📰 <T en="Source:" kn="ಮೂಲ:" /> <a className="link-more" href={e.source.url} target="_blank" rel="noreferrer">{e.source.name}</a></p>}
-            {e.sample && <p className="sample-note"><T en="Sample event for this demo — the office adds real events from the admin panel." kn="ಡೆಮೊಗಾಗಿ ಮಾದರಿ ಕಾರ್ಯಕ್ರಮ — ನೈಜ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಕಚೇರಿ ನಿರ್ವಾಹಕ ಪ್ಯಾನೆಲ್‌ನಿಂದ ಸೇರಿಸುತ್ತದೆ." /></p>}
-            {e.agenda && (
+            {e.gallery && (
               <>
-                <h3 style={{ marginTop: "1.5rem" }}><T en="Agenda" kn="ಕಾರ್ಯಸೂಚಿ" /></h3>
-                <ul className="agenda">
-                  {e.agenda.map((a) => <li key={a.time}><b>{a.time}</b> <L v={a.item} /></li>)}
-                </ul>
+                <h3 style={{ marginTop: "1.5rem" }}><T en="Photos" kn="ಫೋಟೋಗಳು" /></h3>
+                <Album ids={e.gallery} />
               </>
             )}
           </div>
           <aside>
-            {e.upcoming ? <RegisterBox /> : (
-              <div className="panel">
-                <h3><T en="This event has ended" kn="ಈ ಕಾರ್ಯಕ್ರಮ ಮುಗಿದಿದೆ" /></h3>
-                <Link className="btn btn-ghost" href="/gallery/"><T en="See photos" kn="ಫೋಟೋಗಳನ್ನು ನೋಡಿ" /></Link>
+<div className="panel">
+            <h3><T en="This event has ended" kn="ಈ ಕಾರ್ಯಕ್ರಮ ಮುಗಿದಿದೆ" /></h3>
+            <Link className="btn btn-ghost" href="/gallery/"><T en="See photos" kn="ಫೋಟೋಗಳನ್ನು ನೋಡಿ" /></Link>
               </div>
-            )}
             <div className="panel">
               <dl className="info-list">
                 <div><dt><T en="Date" kn="ದಿನಾಂಕ" /></dt><dd><DateText iso={e.date} /></dd></div>

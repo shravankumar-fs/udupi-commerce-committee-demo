@@ -6,14 +6,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "Udupi Chamber of Commerce and Industry", template: "%s · Udupi Chamber of Commerce and Industry" },
-  description: "Udupi Chamber of Commerce and Industry — member directory, events, circulars and membership for Udupi district businesses.",
-  openGraph: { title: "Udupi Chamber of Commerce and Industry", description: "Member directory, events, news and circulars for Udupi's business community.", type: "website" },
+  description: "Udupi Chamber of Commerce and Industry — events, news, committee and membership information for Udupi district businesses.",
+  openGraph: { title: "Udupi Chamber of Commerce and Industry", description: "Events, news and committee of Udupi's business community.", type: "website" },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
