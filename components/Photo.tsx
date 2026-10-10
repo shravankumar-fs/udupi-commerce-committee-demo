@@ -1,10 +1,11 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { useLang } from "./lang";
 import { photo as getPhoto } from "@/lib/photos";
 
 // Shows one of the Chamber's own photos (lib/photos.ts) when `id` is given,
 // otherwise a warm placeholder.
-export function Photo({ id, hue = 20, label, ratio = "4 / 3", seed = 0, eager }: { id?: string; hue?: number; label?: string; ratio?: string; seed?: number; eager?: boolean }) {
+export function Photo({ id, hue = 20, label, ratio = "4 / 3", seed = 0, eager, parallax }: { id?: string; hue?: number; label?: string; ratio?: string; seed?: number; eager?: boolean; parallax?: boolean }) {
   const { lang } = useLang();
   const p = id ? getPhoto(id) : undefined;
   const title = p ? (lang === "kn" ? p.kn : p.title) : "";
@@ -12,8 +13,7 @@ export function Photo({ id, hue = 20, label, ratio = "4 / 3", seed = 0, eager }:
   if (p)
     return (
       <div className="photo" style={{ aspectRatio: ratio }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.src} alt={title} loading={eager ? "eager" : "lazy"} />
+        <PhotoImg src={p.src} alt={title} eager={eager} parallax={parallax} />
         {shown && <span className="photo-label">{shown}</span>}
       </div>
     );
@@ -43,5 +43,16 @@ export function Initials({ name, hue }: { name: string; hue: number }) {
     <div className="initials" style={{ background: `hsl(${hue} 50% 94%)`, color: `hsl(${hue} 55% 32%)` }}>
       {init}
     </div>
+  );
+}
+
+/** Image with a soft shimmer until it has loaded, then a quiet fade-in. */
+function PhotoImg({ src, alt, eager, parallax }: { src: string; alt: string; eager?: boolean; parallax?: boolean }) {
+  const ref = useRef<HTMLImageElement>(null);
+  const [ok, setOk] = useState(false);
+  useEffect(() => { if (ref.current?.complete && ref.current.naturalWidth) setOk(true); }, []);
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img ref={ref} src={src} alt={alt} loading={eager ? "eager" : "lazy"} className={ok ? "loaded" : "loading"} onLoad={() => setOk(true)} {...(parallax ? { "data-pimg": "" } : {})} />
   );
 }

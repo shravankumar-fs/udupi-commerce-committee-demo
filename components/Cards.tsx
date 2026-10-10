@@ -16,7 +16,7 @@ export function EventCard({ e }: { e: Event }) {
       <div className="event-body">
         <span className="tag"><L v={e.type} /></span>
         <h3><L v={e.title} /></h3>
-        <p className="meta">{e.time} · <L v={e.venue} /></p>
+        <p className="meta">{e.time && <>{e.time} · </>}<L v={e.venue} /></p>
       </div>
       <span className="arrow" aria-hidden="true">→</span>
     </Link>

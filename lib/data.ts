@@ -8,8 +8,8 @@ export const org = {
   established: 1964,
   incorporated: "2003-02-05",
   address: {
-    en: "Chamber Tower, Railway Godown Road, Indrali, Udupi – 576102",
-    kn: "ಚೇಂಬರ್ ಟವರ್, ರೈಲ್ವೇ ಗೋಡೌನ್ ರಸ್ತೆ, ಇಂದ್ರಾಳಿ, ಉಡುಪಿ – 576102",
+    en: "Chamber Tower, Railway Godown Road, Indrali, Udupi, 576102",
+    kn: "ಚೇಂಬರ್ ಟವರ್, ರೈಲ್ವೇ ಗೋಡೌನ್ ರಸ್ತೆ, ಇಂದ್ರಾಳಿ, ಉಡುಪಿ, 576102",
   },
   phone: "82178 00763",
   email: "udupichamber@gmail.com",
@@ -38,7 +38,7 @@ export type Event = {
 export const events: Event[] = [
   {
     slug: "office-bearers-2026-27", photo: "agm-stage-group", title: { en: "Installation of Office Bearers 2026–27", kn: "2026–27ರ ಪದಾಧಿಕಾರಿಗಳ ಪದಗ್ರಹಣ" },
-    date: "2026-09-29", time: "—", venue: { en: "Chamber building, Railway Godown Road, Indrali, Udupi", kn: "ಚೇಂಬರ್ ಕಟ್ಟಡ, ರೈಲ್ವೇ ಗೋಡೌನ್ ರಸ್ತೆ, ಇಂದ್ರಾಳಿ, ಉಡುಪಿ" },
+    date: "2026-09-29", time: "", venue: { en: "Chamber building, Railway Godown Road, Indrali, Udupi", kn: "ಚೇಂಬರ್ ಕಟ್ಟಡ, ರೈಲ್ವೇ ಗೋಡೌನ್ ರಸ್ತೆ, ಇಂದ್ರಾಳಿ, ಉಡುಪಿ" },
     type: { en: "Annual meeting", kn: "ವಾರ್ಷಿಕ ಸಭೆ" },
     summary: { en: "Nataraj Prabhu was elected unopposed as President for 2026–27 and took charge from outgoing President Ammunje Prabhakar Nayak, along with the new team of office bearers and directors.", kn: "2026–27ನೇ ಸಾಲಿಗೆ ನಟರಾಜ ಪ್ರಭು ಅವಿರೋಧವಾಗಿ ಅಧ್ಯಕ್ಷರಾಗಿ ಆಯ್ಕೆಯಾಗಿ, ನಿರ್ಗಮಿತ ಅಧ್ಯಕ್ಷ ಅಮ್ಮುಂಜೆ ಪ್ರಭಾಕರ ನಾಯಕ್ ಅವರಿಂದ ಅಧಿಕಾರ ಸ್ವೀಕರಿಸಿದರು." },
     upcoming: false,
@@ -83,7 +83,7 @@ export const posts: Post[] = [
     date: "2024-07-20",
     excerpt: { en: "Hotel, homestay and trade associations joined the Chamber to discuss beach, health and education tourism.", kn: "ಹೋಟೆಲ್, ಹೋಮ್‌ಸ್ಟೇ ಮತ್ತು ವ್ಯಾಪಾರಿ ಸಂಘಗಳು ಚೇಂಬರ್ ಜೊತೆ ಸೇರಿ ಪ್ರವಾಸೋದ್ಯಮ ಕುರಿತು ಚರ್ಚಿಸಿದವು." },
     body: [
-      { en: "The seminar \"Udupi Tourism — Yesterday, Today and Tomorrow\" was held at the Madhavakrishna Auditorium, Kidiyoor Hotel, with the district's coastal tourism committee and the hotel owners', homestay owners' and small traders' associations. Udupi MLA Yashpal Suvarna inaugurated the event.", kn: "\"ಉಡುಪಿ ಪ್ರವಾಸೋದ್ಯಮ — ನಿನ್ನೆ, ಇಂದು, ನಾಳೆ\" ವಿಚಾರಸಂಕಿರಣವು ಕಿದಿಯೂರು ಹೋಟೆಲ್‌ನ ಮಾಧವಕೃಷ್ಣ ಸಭಾಂಗಣದಲ್ಲಿ ನಡೆಯಿತು. ಉಡುಪಿ ಶಾಸಕ ಯಶ್‌ಪಾಲ್ ಸುವರ್ಣ ಉದ್ಘಾಟಿಸಿದರು." },
+      { en: "The seminar \"Udupi Tourism: Yesterday, Today and Tomorrow\" was held at the Madhavakrishna Auditorium, Kidiyoor Hotel, with the district's coastal tourism committee and the hotel owners', homestay owners' and small traders' associations. Udupi MLA Yashpal Suvarna inaugurated the event.", kn: "\"ಉಡುಪಿ ಪ್ರವಾಸೋದ್ಯಮ: ನಿನ್ನೆ, ಇಂದು, ನಾಳೆ\" ವಿಚಾರಸಂಕಿರಣವು ಕಿದಿಯೂರು ಹೋಟೆಲ್‌ನ ಮಾಧವಕೃಷ್ಣ ಸಭಾಂಗಣದಲ್ಲಿ ನಡೆಯಿತು. ಉಡುಪಿ ಶಾಸಕ ಯಶ್‌ಪಾಲ್ ಸುವರ್ಣ ಉದ್ಘಾಟಿಸಿದರು." },
     ],
     source: { name: "Daijiworld", url: "https://daijiworld.com/news/newsDisplay?newsID=1208462" },
   },
@@ -93,7 +93,7 @@ export const posts: Post[] = [
     date: "2023-06-17",
     excerpt: { en: "Higher fixed charges hurt the district's 13,000 small-scale industries, the Chamber said, asking for lower tariffs and electricity tax.", kn: "ಹೆಚ್ಚಿನ ನಿಗದಿತ ಶುಲ್ಕ ಜಿಲ್ಲೆಯ 13,000 ಸಣ್ಣ ಕೈಗಾರಿಕೆಗಳಿಗೆ ಹೊರೆ ಎಂದು ಚೇಂಬರ್ ಹೇಳಿದೆ." },
     body: [
-      { en: "Then President Andaru Deviprasad Shetty, together with the district small-scale industries association, said the increase in fixed charges on electricity bills was affecting the growth of small-scale industries — 13,000 units that employ about 1.65 lakh people in Udupi district.", kn: "ಅಂದಿನ ಅಧ್ಯಕ್ಷ ಅಂದಾರು ದೇವಿಪ್ರಸಾದ್ ಶೆಟ್ಟಿ ಅವರು ಜಿಲ್ಲಾ ಸಣ್ಣ ಕೈಗಾರಿಕಾ ಸಂಘದೊಂದಿಗೆ, ವಿದ್ಯುತ್ ಬಿಲ್‌ನ ನಿಗದಿತ ಶುಲ್ಕ ಏರಿಕೆ ಜಿಲ್ಲೆಯ 13,000 ಸಣ್ಣ ಕೈಗಾರಿಕೆಗಳ ಬೆಳವಣಿಗೆಗೆ ಅಡ್ಡಿಯಾಗಿದೆ ಎಂದರು." },
+      { en: "Then President Andaru Deviprasad Shetty, together with the district small-scale industries association, said the increase in fixed charges on electricity bills was affecting the growth of small-scale industries, 13,000 units that employ about 1.65 lakh people in Udupi district.", kn: "ಅಂದಿನ ಅಧ್ಯಕ್ಷ ಅಂದಾರು ದೇವಿಪ್ರಸಾದ್ ಶೆಟ್ಟಿ ಅವರು ಜಿಲ್ಲಾ ಸಣ್ಣ ಕೈಗಾರಿಕಾ ಸಂಘದೊಂದಿಗೆ, ವಿದ್ಯುತ್ ಬಿಲ್‌ನ ನಿಗದಿತ ಶುಲ್ಕ ಏರಿಕೆ ಜಿಲ್ಲೆಯ 13,000 ಸಣ್ಣ ಕೈಗಾರಿಕೆಗಳ ಬೆಳವಣಿಗೆಗೆ ಅಡ್ಡಿಯಾಗಿದೆ ಎಂದರು." },
       { en: "The Chamber asked the state government to reduce tariffs and cut the electricity tax from 9% to 5%.", kn: "ದರ ಇಳಿಕೆ ಮತ್ತು ವಿದ್ಯುತ್ ತೆರಿಗೆಯನ್ನು 9%ರಿಂದ 5%ಕ್ಕೆ ಇಳಿಸುವಂತೆ ಚೇಂಬರ್ ಸರ್ಕಾರವನ್ನು ಒತ್ತಾಯಿಸಿತು." },
     ],
     source: { name: "Daijiworld", url: "https://daijiworld.com/news/newsDisplay?newsID=1091044" },
@@ -102,7 +102,7 @@ export const posts: Post[] = [
 
 export const albums = [
   { slug: "annual-general-meeting-2026", title: { en: "23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆ" }, photos: ["agm-stage-group", "agm-dais-1", "agm-speaker-1", "agm-speaker-2", "agm-audience-1", "agm-audience-2", "agm-handshake", "agm-felicitation", "agm-president-bouquet", "agm-speaker-portrait", "committee-group"] },
-  { slug: "in-the-news", title: { en: "In the news — new President", kn: "ಪತ್ರಿಕೆಗಳಲ್ಲಿ — ನೂತನ ಅಧ್ಯಕ್ಷರು" }, photos: ["news-vijaya-karnataka", "news-kannada-prabha", "news-udupi-cutout"] },
+  { slug: "in-the-news", title: { en: "In the news: new President", kn: "ಪತ್ರಿಕೆಗಳಲ್ಲಿ: ನೂತನ ಅಧ್ಯಕ್ಷರು" }, photos: ["news-vijaya-karnataka", "news-kannada-prabha", "news-udupi-cutout"] },
   { slug: "ceremony-and-committee", title: { en: "Ceremony & committee 2026–27", kn: "ಸಮಾರಂಭ ಮತ್ತು ಸಮಿತಿ 2026–27" }, photos: ["stage-group", "ceremony-lamp-1", "ceremony-lamp-2", "hall-audience", "committee-banner"] },
   { slug: "chamber-tower", title: { en: "Chamber Tower & flag hoisting", kn: "ಚೇಂಬರ್ ಟವರ್ ಮತ್ತು ಧ್ವಜಾರೋಹಣ" }, photos: ["office", "flag-hoisting-1", "flag-hoisting-2"] },
 ];
@@ -176,7 +176,7 @@ export const presidentMessage = {
   ],
   sections: [
     { h: "A Chamber That Listens", p: [
-      "A Chamber becomes truly effective when it listens to its members. I would like UCCI to be a platform where every member—whether a small trader, MSME, professional, manufacturer, service provider or large enterprise—feels heard and represented.",
+      "A Chamber becomes truly effective when it listens to its members. I would like UCCI to be a platform where every member, whether a small trader, MSME, professional, manufacturer, service provider or large enterprise, feels heard and represented.",
       "Our strength lies in our collective voice. Therefore, I encourage every member to actively participate in UCCI activities, share ideas, raise concerns and contribute to building a stronger business community." ] },
     { h: "Working Together for Udupi", p: [
       "No single organisation can transform the business environment alone. The growth of Udupi requires collaboration between businesses, government, educational institutions, financial institutions, professionals, civil society and the younger generation.",
@@ -191,3 +191,15 @@ export const presidentMessage = {
   signoff: { name: "P. Nataraj Prabhu", role: "President, Udupi Chamber of Commerce & Industry (UCCI), 2026–27" },
   motto: "Together for Business. Together for Udupi.",
 };
+
+// The trades and coastal livelihoods Udupi is known for. Icons are in components/Icons.tsx.
+export const sectors: { icon: "fish" | "beach" | "education" | "tech" | "industry" | "agri" | "food" | "trade"; tone: string; title: Bi; text: Bi }[] = [
+  { icon: "fish", tone: "#0e7490", title: { en: "Fisheries", kn: "ಮೀನುಗಾರಿಕೆ" }, text: { en: "Malpe harbour, boats, nets and seafood trade", kn: "ಮಲ್ಪೆ ಬಂದರು, ದೋಣಿ, ಬಲೆ ಮತ್ತು ಸಮುದ್ರಾಹಾರ ವ್ಯಾಪಾರ" } },
+  { icon: "beach", tone: "#0369a1", title: { en: "Coast & tourism", kn: "ಕರಾವಳಿ ಮತ್ತು ಪ್ರವಾಸೋದ್ಯಮ" }, text: { en: "Beaches, temples, hotels and homestays", kn: "ಕಡಲತೀರ, ದೇವಾಲಯ, ಹೋಟೆಲ್ ಮತ್ತು ಹೋಮ್‌ಸ್ಟೇ" } },
+  { icon: "education", tone: "#4338ca", title: { en: "Education", kn: "ಶಿಕ್ಷಣ" }, text: { en: "Schools, colleges and the Manipal campus", kn: "ಶಾಲೆ, ಕಾಲೇಜು ಮತ್ತು ಮಣಿಪಾಲ ಕ್ಯಾಂಪಸ್" } },
+  { icon: "tech", tone: "#1d4ed8", title: { en: "Technology & services", kn: "ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ಸೇವೆಗಳು" }, text: { en: "IT, professional and business services", kn: "ಐಟಿ, ವೃತ್ತಿಪರ ಮತ್ತು ವ್ಯಾಪಾರ ಸೇವೆಗಳು" } },
+  { icon: "industry", tone: "#475569", title: { en: "Industry", kn: "ಕೈಗಾರಿಕೆ" }, text: { en: "Manufacturing and small-scale units", kn: "ತಯಾರಿಕೆ ಮತ್ತು ಸಣ್ಣ ಕೈಗಾರಿಕೆಗಳು" } },
+  { icon: "agri", tone: "#4d7c0f", title: { en: "Agriculture", kn: "ಕೃಷಿ" }, text: { en: "Paddy, coconut and arecanut", kn: "ಭತ್ತ, ತೆಂಗು ಮತ್ತು ಅಡಿಕೆ" } },
+  { icon: "food", tone: "#b45309", title: { en: "Food & hospitality", kn: "ಆಹಾರ ಮತ್ತು ಆತಿಥ್ಯ" }, text: { en: "Udupi cuisine, restaurants and food processing", kn: "ಉಡುಪಿ ಖಾದ್ಯ, ಹೋಟೆಲ್ ಮತ್ತು ಆಹಾರ ಸಂಸ್ಕರಣೆ" } },
+  { icon: "trade", tone: "#123a6b", title: { en: "Trade & commerce", kn: "ವ್ಯಾಪಾರ ಮತ್ತು ವಾಣಿಜ್ಯ" }, text: { en: "Retail, wholesale, banking and finance", kn: "ಚಿಲ್ಲರೆ, ಸಗಟು, ಬ್ಯಾಂಕಿಂಗ್ ಮತ್ತು ಹಣಕಾಸು" } },
+];

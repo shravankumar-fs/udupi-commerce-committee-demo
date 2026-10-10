@@ -26,14 +26,14 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
           <span className="tag"><L v={e.type} /></span>
           <h1 style={{ marginTop: ".75rem", fontSize: "clamp(1.8rem,3.6vw,2.8rem)" }}><L v={e.title} /></h1>
           <p className="meta" style={{ fontSize: "1rem" }}>
-            <DateText iso={e.date} /> · {e.time} · <L v={e.venue} />
+            <DateText iso={e.date} />{e.time && <> · {e.time}</>} · <L v={e.venue} />
           </p>
         </div>
       </section>
       <section>
         <div className="container detail-grid">
           <div className="prose">
-            <Photo id={e.photo} ratio="16 / 7" eager />
+            <Photo id={e.photo} ratio="16 / 7" eager parallax />
             <h2 style={{ fontSize: "1.4rem", marginTop: "2rem" }}><T en="About this event" kn="ಕಾರ್ಯಕ್ರಮದ ಬಗ್ಗೆ" /></h2>
             <p><L v={e.summary} /></p>
             {e.source && <p className="small">📰 <T en="Source:" kn="ಮೂಲ:" /> <a className="link-more" href={e.source.url} target="_blank" rel="noreferrer">{e.source.name}</a></p>}
@@ -52,7 +52,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
             <div className="panel">
               <dl className="info-list">
                 <div><dt><T en="Date" kn="ದಿನಾಂಕ" /></dt><dd><DateText iso={e.date} /></dd></div>
-                <div><dt><T en="Time" kn="ಸಮಯ" /></dt><dd>{e.time}</dd></div>
+                {e.time && <div><dt><T en="Time" kn="ಸಮಯ" /></dt><dd>{e.time}</dd></div>}
                 <div><dt><T en="Venue" kn="ಸ್ಥಳ" /></dt><dd><L v={e.venue} /></dd></div>
               </dl>
             </div>

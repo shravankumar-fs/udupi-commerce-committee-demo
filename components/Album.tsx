@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { photo } from "@/lib/photos";
 import { Photo } from "./Photo";
 import { useLang } from "./lang";
@@ -7,6 +8,8 @@ import { useLang } from "./lang";
 export function Album({ ids }: { ids: string[] }) {
   const { lang } = useLang();
   const [open, setOpen] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const title = (id: string) => (lang === "kn" ? photo(id).kn : photo(id).title);
   const step = useCallback((d: number) => setOpen((i) => (i === null ? i : (i + d + ids.length) % ids.length)), [ids.length]);
 
@@ -32,9 +35,10 @@ export function Album({ ids }: { ids: string[] }) {
           </button>
         ))}
       </div>
-      {open !== null && (
+      {mounted && open !== null && createPortal(
         <div className="lightbox" role="dialog" aria-modal="true" onClick={() => setOpen(null)}>
           <figure className="lightbox-fig" onClick={(e) => e.stopPropagation()}>
+            <span className="spinner" aria-hidden="true" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={photo(ids[open]).src} alt={title(ids[open])} />
             <figcaption className="lightbox-cap">{title(ids[open])} · {open + 1}/{ids.length}</figcaption>
@@ -46,7 +50,8 @@ export function Album({ ids }: { ids: string[] }) {
             </>
           )}
           <button className="lb-close" aria-label="Close" onClick={() => setOpen(null)}>✕</button>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

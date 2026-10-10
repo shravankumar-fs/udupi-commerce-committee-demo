@@ -1,6 +1,7 @@
 import { org } from "@/lib/data";
 import { L, T } from "@/components/lang";
 import { PageHead } from "@/components/Cards";
+import { Icon } from "@/components/Icons";
 
 export const metadata = { title: "Contact" };
 
@@ -21,15 +22,15 @@ export default function ContactPage() {
             <div className="panel">
               <h3><T en="Chamber office" kn="ಚೇಂಬರ್ ಕಚೇರಿ" /></h3>
               <dl className="info-list">
-                <div><dt><T en="Address" kn="ವಿಳಾಸ" /></dt><dd><L v={org.address} /></dd></div>
-                <div><dt><T en="Phone" kn="ದೂರವಾಣಿ" /></dt><dd>{org.phone}</dd></div>
-                <div><dt><T en="Email" kn="ಇಮೇಲ್" /></dt><dd>{org.email}</dd></div>
+                <div className="contact-row"><dt><Icon name="pin" size={18} draw /> <T en="Address" kn="ವಿಳಾಸ" /></dt><dd><L v={org.address} /></dd></div>
+                <div className="contact-row"><dt><Icon name="phone" size={18} draw /> <T en="Phone" kn="ದೂರವಾಣಿ" /></dt><dd>{org.phone}</dd></div>
+                <div className="contact-row"><dt><Icon name="mail" size={18} draw /> <T en="Email" kn="ಇಮೇಲ್" /></dt><dd>{org.email}</dd></div>
               </dl>
             </div>
             <div className="panel">
               <div className="action-stack">
-                <a className="btn btn-primary" href={`tel:${org.phone.replace(/\s/g, "")}`}>📞 <T en="Call the office" kn="ಕಚೇರಿಗೆ ಕರೆ" /></a>
-                <a className="btn btn-ghost" href={`mailto:${org.email}`}>✉ <T en="Email the office" kn="ಇಮೇಲ್ ಕಳುಹಿಸಿ" /></a>
+                <a className="btn btn-primary" href={`tel:${org.phone.replace(/\s/g, "")}`}><Icon name="phone" size={18} /> <T en="Call the office" kn="ಕಚೇರಿಗೆ ಕರೆ" /></a>
+                <a className="btn btn-ghost" href={`mailto:${org.email}`}><Icon name="mail" size={18} /> <T en="Email the office" kn="ಇಮೇಲ್ ಕಳುಹಿಸಿ" /></a>
               </div>
             </div>
           </aside>

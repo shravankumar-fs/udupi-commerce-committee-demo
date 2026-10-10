@@ -11,7 +11,7 @@ export default function NewsPage() {
         photos={["office", "committee-group", "ceremony-lamp-2"]}
         eyebrow={<T en="News & circulars" kn="ಸುದ್ದಿ ಮತ್ತು ಸುತ್ತೋಲೆಗಳು" />}
         title={<T en="Updates for Udupi's business community" kn="ಉಡುಪಿ ವ್ಯಾಪಾರ ಸಮುದಾಯಕ್ಕೆ ಮಾಹಿತಿ" />}
-        intro={<T en="Government notices, Chamber news and press releases — posted by the office, in English and Kannada." kn="ಸರ್ಕಾರಿ ಪ್ರಕಟಣೆಗಳು, ಚೇಂಬರ್ ಸುದ್ದಿ ಮತ್ತು ಪತ್ರಿಕಾ ಪ್ರಕಟಣೆಗಳು — ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ." />}
+        intro={<T en="Government notices, Chamber news and press releases, posted by the office, in English and Kannada." kn="ಸರ್ಕಾರಿ ಪ್ರಕಟಣೆಗಳು, ಚೇಂಬರ್ ಸುದ್ದಿ ಮತ್ತು ಪತ್ರಿಕಾ ಪ್ರಕಟಣೆಗಳು, ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ." />}
       />
       <section>
         <div className="container"><NewsList /></div>

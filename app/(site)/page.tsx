@@ -1,12 +1,14 @@
 import Link from "next/link";
-import { bearers, events, presidentMessage as pm, heroSlides, posts, stats } from "@/lib/data";
+import { sectors, bearers, events, presidentMessage as pm, heroSlides, posts, stats } from "@/lib/data";
 import { photo } from "@/lib/photos";
 import { L, T } from "@/components/lang";
 import { EventCard, PostRow } from "@/components/Cards";
 import { HeroSlides } from "@/components/Carousel";
-import { Lift, Reveal, Stagger, StaggerItem } from "@/components/Motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { Carousel } from "@/components/Carousel";
 import { Avatar, Photo } from "@/components/Photo";
+import { Icon } from "@/components/Icons";
+import { Coast } from "@/components/Decor";
 
 const STRIP = ["agm-stage-group", "stage-group", "ceremony-lamp-1", "agm-handshake", "hall-audience", "flag-hoisting-1", "agm-dais-1", "office"];
 
@@ -50,10 +52,30 @@ export default function Home() {
       <section className="stats-section">
         <div className="container">
           <Stagger className="stats" gap={0.1}>
-            {stats.map((s) => (
+            {stats.map((s, i) => (
               <StaggerItem className="stat" key={s.value + s.label.en}>
-                <b>{s.value}</b>
+                <Icon name={["calendar", "award", "users"][i % 3] as "calendar"} draw className="stat-icon" /><b>{s.value}</b>
                 <span><L v={s.label} /></span>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      <section className="sectors-section">
+        <div className="container">
+          <Reveal className="section-head">
+            <div>
+              <p className="eyebrow"><T en="Udupi at work" kn="ಉಡುಪಿಯ ಉದ್ಯಮ ಜಗತ್ತು" /></p>
+              <h2><T en="From the harbour to the campus" kn="ಬಂದರಿನಿಂದ ಕ್ಯಾಂಪಸ್‌ವರೆಗೆ" /></h2>
+            </div>
+          </Reveal>
+          <Stagger className="sectors" gap={0.06}>
+            {sectors.map((x) => (
+              <StaggerItem key={x.icon} className="sector-card">
+                <span className="sector-icon" style={{ color: x.tone }}><Icon name={x.icon} size={30} draw /></span>
+                <h3><L v={x.title} /></h3>
+                <p className="small"><L v={x.text} /></p>
               </StaggerItem>
             ))}
           </Stagger>
@@ -116,12 +138,12 @@ export default function Home() {
       </section>
 
       <section className="parallax-band message-band">
-        <div className="band-bg" data-parallax="0.12" style={{ backgroundImage: "url(/office.jpeg)" }} />
+        <div className="band-bg" data-parallax="0.15" style={{ backgroundImage: "url(/office.jpeg)" }} />
         <div className="container">
           <Reveal>
             <p className="eyebrow" style={{ color: "var(--green-light)" }}><T en="President's message" kn="ಅಧ್ಯಕ್ಷರ ಸಂದೇಶ" /></p>
             <blockquote lang="en">“{pm.visionQuote}”</blockquote>
-            <p className="band-by">— {pm.signoff.name}, President 2026–27</p>
+            <p className="band-by">{pm.signoff.name}, President 2026–27</p>
             <Link href="/about/#message" className="btn btn-light"><T en="Read the full message" kn="ಪೂರ್ಣ ಸಂದೇಶ ಓದಿ" /></Link>
           </Reveal>
         </div>
@@ -149,6 +171,7 @@ export default function Home() {
       <section>
         <div className="container">
           <Reveal className="join-band">
+            <Coast className="join-coast" />
             <div>
               <p className="eyebrow" style={{ color: "var(--green-light)" }}><T en="Membership" kn="ಸದಸ್ಯತ್ವ" /></p>
               <h2><T en="Join the businesses shaping Udupi's economy" kn="ಉಡುಪಿಯ ಆರ್ಥಿಕತೆಯನ್ನು ರೂಪಿಸುತ್ತಿರುವ ಉದ್ಯಮಗಳೊಂದಿಗೆ ಸೇರಿ" /></h2>

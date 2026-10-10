@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLang, T } from "./lang";
 import { Logo } from "./Logo";
 
@@ -18,9 +18,19 @@ export function Header() {
   const { lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   useEffect(() => setOpen(false), [path]);
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const set = () => document.documentElement.style.setProperty("--header-h", `${el.offsetHeight}px`);
+    set();
+    const ro = new ResizeObserver(set);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   return (
-    <header className="site-header">
+    <header className="site-header" ref={ref}>
       <div className="topbar">
         <div className="container topbar-inner">
           <span><><span className="hide-sm"><T en="Chamber Tower, Indrali, Udupi · " kn="ಚೇಂಬರ್ ಟವರ್, ಇಂದ್ರಾಳಿ, ಉಡುಪಿ · " /></span><a href="tel:8217800763" style={{ color: "inherit" }}>82178 00763</a></></span>

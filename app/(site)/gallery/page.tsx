@@ -35,7 +35,7 @@ export default function GalleryPage() {
         <Stagger className="container gallery-grid" gap={0.07}>
           {albums.map((a) => (
             <StaggerItem key={a.slug}><Link href={`/gallery/${a.slug}/`} className="album-card">
-              <Photo id={a.photos[0]} label={`${a.photos.length} photos`} />
+              <Photo id={a.photos[0]} label={`${a.photos.length} photos`} parallax />
               <h3><L v={a.title} /></h3>
             </Link></StaggerItem>
           ))}

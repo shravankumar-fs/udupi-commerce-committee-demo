@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { LangProvider } from "@/components/lang";
 import { MotionProvider } from "@/components/Motion";
+import { RouteProgress, Splash } from "@/components/Loaders";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "Udupi Chamber of Commerce and Industry", template: "%s · Udupi Chamber of Commerce and Industry" },
-  description: "Udupi Chamber of Commerce and Industry — events, news, committee and membership information for Udupi district businesses.",
+  description: "Udupi Chamber of Commerce and Industry. Events, news, committee and membership information for Udupi district businesses.",
   openGraph: { title: "Udupi Chamber of Commerce and Industry", description: "Events, news and committee of Udupi's business community.", type: "website" },
 };
 
@@ -14,7 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js');try{if(sessionStorage.getItem('ucci-splash')==='1')document.documentElement.classList.add('seen')}catch(e){}" }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
@@ -23,6 +24,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body suppressHydrationWarning>
+        <Splash />
+        <RouteProgress />
         <LangProvider><MotionProvider>{children}</MotionProvider></LangProvider>
       </body>
     </html>

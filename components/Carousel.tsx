@@ -1,6 +1,7 @@
 "use client";
 import { Children, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { useLang } from "./lang";
+import { WaveDivider } from "./Decor";
 
 /** Horizontal scroll-snap carousel with arrows, dots and optional autoplay. Swipe works natively on phones. */
 export function Carousel({ children, autoplay = 0, label }: { children: ReactNode; autoplay?: number; label: string }) {
@@ -74,6 +75,7 @@ export function HeroSlides({ slides }: { slides: { src: string; alt: string; cap
           <img key={s.src} src={s.src} alt="" className={k === i ? "on" : ""} loading={k === 0 ? "eager" : "lazy"} />
         ))}
       </div>
+      <WaveDivider />
       <div className="hero-caption">
         <span>📍 {slides[i].caption[lang]}</span>
         <span className="dots">

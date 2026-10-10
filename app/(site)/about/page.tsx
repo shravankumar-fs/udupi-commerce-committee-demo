@@ -3,16 +3,18 @@ import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { DateText, L, T } from "@/components/lang";
 import { PageHead } from "@/components/Cards";
 import { Avatar, Photo } from "@/components/Photo";
+import { Icon, type IconName } from "@/components/Icons";
 import { Carousel } from "@/components/Carousel";
 import { photo } from "@/lib/photos";
 
 export const metadata = { title: "About" };
 
+const OBJ_ICONS: IconName[] = ["users", "beach", "mail", "trade"];
 const objectives = [
-  { t: { en: "Represent members", kn: "ಸದಸ್ಯರ ಪ್ರತಿನಿಧಿತ್ವ" }, d: { en: "Take the concerns of traders and industries — tariffs, taxes, infrastructure — to the district administration and the state government.", kn: "ತೆರಿಗೆ, ವಿದ್ಯುತ್ ದರ, ಮೂಲಸೌಕರ್ಯ ಕುರಿತ ವ್ಯಾಪಾರಿಗಳ ಸಮಸ್ಯೆಗಳನ್ನು ಜಿಲ್ಲಾಡಳಿತ ಮತ್ತು ರಾಜ್ಯ ಸರ್ಕಾರದ ಮುಂದೆ ಇಡುವುದು." } },
+  { t: { en: "Represent members", kn: "ಸದಸ್ಯರ ಪ್ರತಿನಿಧಿತ್ವ" }, d: { en: "Take the concerns of traders and industries (tariffs, taxes, infrastructure) to the district administration and the state government.", kn: "ತೆರಿಗೆ, ವಿದ್ಯುತ್ ದರ, ಮೂಲಸೌಕರ್ಯ ಕುರಿತ ವ್ಯಾಪಾರಿಗಳ ಸಮಸ್ಯೆಗಳನ್ನು ಜಿಲ್ಲಾಡಳಿತ ಮತ್ತು ರಾಜ್ಯ ಸರ್ಕಾರದ ಮುಂದೆ ಇಡುವುದು." } },
   { t: { en: "Grow local trade & tourism", kn: "ಸ್ಥಳೀಯ ವ್ಯಾಪಾರ ಮತ್ತು ಪ್ರವಾಸೋದ್ಯಮ" }, d: { en: "Seminars and partnerships with hotel, homestay and trade associations to grow Udupi's economy.", kn: "ಹೋಟೆಲ್, ಹೋಮ್‌ಸ್ಟೇ ಮತ್ತು ವ್ಯಾಪಾರಿ ಸಂಘಗಳೊಂದಿಗೆ ಸೇರಿ ಉಡುಪಿಯ ಆರ್ಥಿಕತೆಯ ಬೆಳವಣಿಗೆ." } },
   { t: { en: "Keep members informed", kn: "ಸದಸ್ಯರಿಗೆ ಮಾಹಿತಿ" }, d: { en: "Share circulars, tax changes and government schemes quickly and clearly.", kn: "ಸುತ್ತೋಲೆಗಳು, ತೆರಿಗೆ ಬದಲಾವಣೆಗಳು ಮತ್ತು ಯೋಜನೆಗಳನ್ನು ಶೀಘ್ರವಾಗಿ ಹಂಚಿಕೊಳ್ಳುವುದು." } },
-  { t: { en: "Connect businesses", kn: "ಉದ್ಯಮಗಳ ಸಂಪರ್ಕ" }, d: { en: "Bring together businesses across sectors — from Malpe's fisheries to Manipal's services.", kn: "ಮಲ್ಪೆಯ ಮೀನುಗಾರಿಕೆಯಿಂದ ಮಣಿಪಾಲದ ಸೇವೆಗಳವರೆಗೆ ಎಲ್ಲ ವಲಯಗಳ ಉದ್ಯಮಗಳನ್ನು ಒಗ್ಗೂಡಿಸುವುದು." } },
+  { t: { en: "Connect businesses", kn: "ಉದ್ಯಮಗಳ ಸಂಪರ್ಕ" }, d: { en: "Bring together businesses across sectors, from Malpe's fisheries to Manipal's services.", kn: "ಮಲ್ಪೆಯ ಮೀನುಗಾರಿಕೆಯಿಂದ ಮಣಿಪಾಲದ ಸೇವೆಗಳವರೆಗೆ ಎಲ್ಲ ವಲಯಗಳ ಉದ್ಯಮಗಳನ್ನು ಒಗ್ಗೂಡಿಸುವುದು." } },
 ];
 
 const HUES = [20, 340, 210, 140, 35, 260, 195, 0, 90, 230, 160, 50, 320, 15, 185, 120];
@@ -26,7 +28,7 @@ export default function AboutPage() {
         photos={["office", "stage-group", "agm-stage-group"]}
         eyebrow={<T en="About the Chamber" kn="ಚೇಂಬರ್ ಬಗ್ಗೆ" />}
         title={<T en="Udupi's chamber of commerce, since 1964" kn="1964ರಿಂದ ಉಡುಪಿಯ ವಾಣಿಜ್ಯ ಮಂಡಳಿ" />}
-        intro={<T en="The Udupi Chamber of Commerce and Industry (UCCI) brings together traders, manufacturers and service businesses of Udupi district — like the chambers of commerce in Mumbai or Bengaluru, rooted in our coastal town." kn="ಉಡುಪಿ ಚೇಂಬರ್ ಆಫ್ ಕಾಮರ್ಸ್ ಆ್ಯಂಡ್ ಇಂಡಸ್ಟ್ರಿ (UCCI) ಉಡುಪಿ ಜಿಲ್ಲೆಯ ವ್ಯಾಪಾರಿಗಳು, ತಯಾರಕರು ಮತ್ತು ಸೇವಾ ಉದ್ಯಮಗಳನ್ನು ಒಗ್ಗೂಡಿಸುತ್ತದೆ." />}
+        intro={<T en="The Udupi Chamber of Commerce and Industry (UCCI) brings together traders, manufacturers and service businesses of Udupi district, like the chambers of commerce in Mumbai or Bengaluru, rooted in our coastal town." kn="ಉಡುಪಿ ಚೇಂಬರ್ ಆಫ್ ಕಾಮರ್ಸ್ ಆ್ಯಂಡ್ ಇಂಡಸ್ಟ್ರಿ (UCCI) ಉಡುಪಿ ಜಿಲ್ಲೆಯ ವ್ಯಾಪಾರಿಗಳು, ತಯಾರಕರು ಮತ್ತು ಸೇವಾ ಉದ್ಯಮಗಳನ್ನು ಒಗ್ಗೂಡಿಸುತ್ತದೆ." />}
       />
       <section>
         <div className="container about-grid">
@@ -59,8 +61,9 @@ export default function AboutPage() {
         <div className="container">
           <h2><T en="What we do" kn="ನಾವು ಏನು ಮಾಡುತ್ತೇವೆ" /></h2>
           <Stagger className="objectives" gap={0.08}>
-            {objectives.map((o) => (
+            {objectives.map((o, i) => (
               <StaggerItem className="objective" key={o.t.en}>
+                <Icon name={OBJ_ICONS[i]} size={26} draw className="obj-icon" />
                 <h3><L v={o.t} /></h3>
                 <p className="small" style={{ fontSize: ".95rem" }}><L v={o.d} /></p>
               </StaggerItem>
@@ -71,13 +74,13 @@ export default function AboutPage() {
 
       <section id="message" className="section-paper">
         <div className="container message-grid">
-          <Reveal className="message-side">
-            <div className="message-portrait" data-parallax="0.04">
+          <div className="message-col"><div className="message-side" data-pin>
+            <div className="message-portrait">
               <img src="/Comittee_Board_members/Nataraj_Prabhu.jpeg" alt="Nataraj Prabhu, President" />
             </div>
             <b>{pm.signoff.name}</b>
             <span className="meta"><T en="President, 2026–27" kn="ಅಧ್ಯಕ್ಷರು, 2026–27" /></span>
-          </Reveal>
+          </div></div>
           <div className="message-body" lang="en">
             <p className="eyebrow"><T en="President's message" kn="ಅಧ್ಯಕ್ಷರ ಸಂದೇಶ" /><span className="meta" style={{ textTransform: "none", letterSpacing: 0 }}> <T en="" kn="· ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ" /></span></p>
             <h2>{pm.title}</h2>
@@ -98,7 +101,7 @@ export default function AboutPage() {
 
       <section id="bearers">
         <div className="container">
-          <p className="eyebrow"><T en="2026 – 27" kn="2026 – 27" /></p>
+          <p className="eyebrow"><T en="2026–27" kn="2026–27" /></p>
           <h2><T en="Office bearers" kn="ಪದಾಧಿಕಾರಿಗಳು" /></h2>
           <Stagger className="bearers" gap={0.07}>
             {officers.map((b, i) => (

@@ -21,9 +21,9 @@ export const photos: PhotoInfo[] = [
   { id: "agm-felicitation", src: "/past_events/agm-felicitation.jpeg", title: "Handing over papers at the AGM", kn: "ಮಹಾಸಭೆಯಲ್ಲಿ ದಾಖಲೆಗಳ ಹಸ್ತಾಂತರ" },
   { id: "agm-speaker-portrait", src: "/past_events/agm-speaker-portrait.jpeg", title: "Speaking at the 23rd Annual General Meeting", kn: "23ನೇ ವಾರ್ಷಿಕ ಮಹಾಸಭೆಯಲ್ಲಿ ಮಾತನಾಡುತ್ತಿರುವುದು" },
   { id: "agm-president-bouquet", src: "/news_cutouts/agm-president-bouquet.jpeg", title: "Outgoing President greets the new President at the AGM", kn: "ನಿರ್ಗಮಿತ ಅಧ್ಯಕ್ಷರು ನೂತನ ಅಧ್ಯಕ್ಷರನ್ನು ಅಭಿನಂದಿಸುತ್ತಿರುವುದು" },
-  { id: "news-vijaya-karnataka", src: "/news_cutouts/news-vijaya-karnataka.jpeg", title: "Vijaya Karnataka, 30 Sep 2026 — Nataraj Prabhu takes charge as President", kn: "ವಿಜಯ ಕರ್ನಾಟಕ, 30 ಸೆಪ್ಟೆಂಬರ್ 2026 — ನಟರಾಜ ಪ್ರಭು ಅಧ್ಯಕ್ಷರಾಗಿ ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
-  { id: "news-kannada-prabha", src: "/news_cutouts/news-kannada-prabha.jpeg", title: "Kannada Prabha, 1 Oct 2026 — UCCI new President takes charge", kn: "ಕನ್ನಡಪ್ರಭ, 1 ಅಕ್ಟೋಬರ್ 2026 — ಯುಸಿಸಿಐ ಅಧ್ಯಕ್ಷರಾಗಿ ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
-  { id: "news-udupi-cutout", src: "/news_cutouts/news-udupi-cutout.jpeg", title: "Press report — Nataraj Prabhu takes charge as new President", kn: "ಪತ್ರಿಕಾ ವರದಿ — ನೂತನ ಅಧ್ಯಕ್ಷರಾಗಿ ನಟರಾಜ ಪ್ರಭು ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
+  { id: "news-vijaya-karnataka", src: "/news_cutouts/news-vijaya-karnataka.jpeg", title: "Vijaya Karnataka, 30 Sep 2026: Nataraj Prabhu takes charge as President", kn: "ವಿಜಯ ಕರ್ನಾಟಕ, 30 ಸೆಪ್ಟೆಂಬರ್ 2026: ನಟರಾಜ ಪ್ರಭು ಅಧ್ಯಕ್ಷರಾಗಿ ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
+  { id: "news-kannada-prabha", src: "/news_cutouts/news-kannada-prabha.jpeg", title: "Kannada Prabha, 1 Oct 2026: UCCI new President takes charge", kn: "ಕನ್ನಡಪ್ರಭ, 1 ಅಕ್ಟೋಬರ್ 2026: ಯುಸಿಸಿಐ ಅಧ್ಯಕ್ಷರಾಗಿ ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
+  { id: "news-udupi-cutout", src: "/news_cutouts/news-udupi-cutout.jpeg", title: "Press report: Nataraj Prabhu takes charge as new President", kn: "ಪತ್ರಿಕಾ ವರದಿ: ನೂತನ ಅಧ್ಯಕ್ಷರಾಗಿ ನಟರಾಜ ಪ್ರಭು ಅಧಿಕಾರ ಸ್ವೀಕಾರ" },
 ];
 
 export const photo = (id: string) => photos.find((p) => p.id === id)!;
